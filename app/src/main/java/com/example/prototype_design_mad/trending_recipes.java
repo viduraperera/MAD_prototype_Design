@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class trending_recipes extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class trending_recipes extends AppCompatActivity {
                 showToast();
             }
         });
+
     }
     public void showToast(){
         Context context = getApplicationContext();
