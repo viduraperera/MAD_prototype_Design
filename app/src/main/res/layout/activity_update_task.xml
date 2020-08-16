@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/food13"
+    tools:context=".UpdateTask">
+
+    <EditText
+        android:id="@+id/Recipe1"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="587dp"
+        android:background="@drawable/edit_round"
+        android:text="@string/recipe" />
+
+
+    <EditText
+        android:id="@+id/Date1"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="492dp"
+        android:background="@drawable/edit_round"
+        android:drawableRight="@drawable/ic_baseline_calendar_today_24"
+        android:inputType="textPersonName"
+        android:text="@string/date" />
+
+    <EditText
+        android:id="@+id/time1"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+
+
+
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="412dp"
+        android:background="@drawable/edit_round"
+        android:drawableRight="@drawable/ic_baseline_access_time_24"
+        android:inputType="textPersonName"
+        android:text="@string/time" />
+
+    <EditText
+        android:id="@+id/tvIngredients"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="310dp"
+        android:background="@drawable/edit_round"
+        android:text="@string/ingredients"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:id="@+id/Editbutton"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="485dp"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="206dp"
+        android:background="@drawable/button_round"
+        android:text="Edit"
+        android:textColor="#272525"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/editrecipe"
+        android:layout_width="87dp"
+
+
+        android:layout_height="40dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="265dp"
+        android:layout_marginBottom="638dp"
+        android:text="Recipe"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Ingrediants1"
+        android:layout_width="141dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="163dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="549dp"
+        android:text="Pick the Date"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Ingredients2"
+        android:layout_width="80dp"
+        android:layout_height="33dp"
+
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="253dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginBottom="457dp"
+        android:text="Time"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Ingredients3"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="352dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="352dp"
+        android:text="Ingredients"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
