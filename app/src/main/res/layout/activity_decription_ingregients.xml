@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".decription_ingregients"
+    android:background="@drawable/plate">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textColor="#A63A3A"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.009" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        android:background="#2DFFFFFF"
+        android:text="Description"
+        android:textAlignment="textStart"
+        android:textColor="#A63A3A"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        android:background="#1DFFFFFF"
+        android:text="Ingregients"
+        android:textAlignment="textStart"
+        android:textColor="#A63A3A"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="379dp"
+        android:layout_height="236dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139"
+        android:background="@drawable/pancakes"/>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="374dp"
+        android:layout_height="99dp"
+        android:background="#60A495BA"
+        android:backgroundTint="#60A495BA"
+        android:text="this part is for the recipe description"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="380dp"
+        android:layout_height="162dp"
+        android:background="#60A495BA"
+        android:backgroundTint="#60A495BA"
+        android:text="1 cup all-purpose flour 2 tablespoons white sugar 2 teaspoons baking powder 1 teaspoon salt 1 egg, beaten 1 cup milk 2 tablespoons vegetable oil"
+        android:textAlignment="center"
+        android:textColor="#090909"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971" />
+</androidx.constraintlayout.widget.ConstraintLayout>

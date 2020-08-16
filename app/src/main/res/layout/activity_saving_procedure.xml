@@ -17,7 +17,7 @@
         android:textColor="#A63A3A"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +25,9 @@
         app:layout_constraintVertical_bias="0.009" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="164dp"
-        android:layout_height="66dp"
+        android:id="@+id/save"
+        android:layout_width="158dp"
+        android:layout_height="53dp"
         android:text="Save PDF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,23 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975" />
-
-    <ScrollView
-        android:layout_width="411dp"
-        android:layout_height="450dp"
-        android:background="@drawable/prcedure_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
     <TextView
         android:id="@+id/textView"
@@ -64,9 +47,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="381dp"
+        android:layout_height="473dp"
+        android:background="#60A495BA"
+        android:text="Mix flour, baking powder, salt, and sugar In a medium-size mixing bowl or large glass measuring cup, whisk together your dry ingredients (or follow directions for premade pancake mix). Mix milk, eggs, and oil In a separate bowl, whisk together the wet ingredients (milk, eggs, vegetable oil, or melted butter) until the egg is broken up (this will prevent overmixing in the next step). Mix dry ingredients with wet ingredients Add the wet ingredients to the bowl with the dry ingredients. Stir them together until you stop seeing flour. Remember to not overmix, which makes the batter tough."
+        android:textColor="#050505"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
