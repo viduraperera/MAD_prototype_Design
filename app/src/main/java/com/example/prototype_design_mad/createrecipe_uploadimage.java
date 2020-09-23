@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class  create_recipe_myrecipe extends AppCompatActivity {
+public class createrecipe_uploadimage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_recipe_myrecipe);
+        setContentView(R.layout.activity_createrecipe_uploadimage);
     }
 }
