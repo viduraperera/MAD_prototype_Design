@@ -2,8 +2,11 @@ package com.example.prototype_design_mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ public class AllRecipeStart extends AppCompatActivity {
 
     ListView listView;
     FirebaseListAdapter adapter;
+    EditText searchRecipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class AllRecipeStart extends AppCompatActivity {
         setContentView(R.layout.activity_all_recipe_start);
 
         listView  = findViewById(R.id.recipe_list_view);
+        searchRecipes = findViewById(R.id.search_recipe);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("Recipes");
         FirebaseListOptions<RecipeModel> options = new FirebaseListOptions.Builder<RecipeModel>()
@@ -47,6 +52,41 @@ public class AllRecipeStart extends AppCompatActivity {
             }
         };
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(AllRecipeStart.this, ViewSingleRecipe.class);
+                RecipeModel recipeModel = (RecipeModel) adapterView.getItemAtPosition(i);
+                intent.putExtra("Title", recipeModel.getTitle());
+                intent.putExtra("Description", recipeModel.getDescription());
+                intent.putExtra("Ingredient", recipeModel.getIngredient());
+                intent.putExtra("Steps", recipeModel.getSteps());
+                intent.putExtra("Image", recipeModel.getImage());
+                startActivity(intent);
+            }
+        });
+
+        searchRecipes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchRecipes.getText().toString();
+                listViewSearch(searchText);
+            }
+        });
+    }
+    private void listViewSearch(String searchText){
+        Query query = FirebaseDatabase.getInstance().getReference().child("Recipes").startAt(searchText).endAt(searchText + "\uf8ff");
+        FirebaseListOptions<RecipeModel> options = new FirebaseListOptions.Builder<RecipeModel>()
+                .setLayout(R.layout.recipe)
+                .setQuery(query, RecipeModel.class)
+                .build();
+        adapter = new FirebaseListAdapter(options) {
+            @Override
+            protected void populateView(View v, Object model, int position) {
+
+            }
+        };
     }
 
     @Override
