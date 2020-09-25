@@ -10,4 +10,6 @@
     <string name="date1">Date</string>
     <string name="time1">Time</string>
     <string name="ingredients2">Ingredients</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
