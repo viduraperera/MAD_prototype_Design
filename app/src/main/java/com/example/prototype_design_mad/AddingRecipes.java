@@ -73,40 +73,46 @@ public class AddingRecipes extends AppCompatActivity {
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String on_title = title.getText().toString().trim();
-                final String on_ingredient = ingredient.getText().toString().trim();
-                final String on_description = description.getText().toString().trim();
-                final String on_steps = steps.getText().toString().trim();
+                    add_recipe();
+            }
+        });
+    }
 
-                if(!(on_title.isEmpty() && on_steps.isEmpty() && on_description.isEmpty() && on_ingredient.isEmpty() && imageUrl != null)){
-                    progressDialog.setTitle("uploading........");
-                    progressDialog.show();
+    private void add_recipe(){
+        final String on_title = title.getText().toString().trim();
+        final String on_ingredient = ingredient.getText().toString().trim();
+        final String on_description = description.getText().toString().trim();
+        final String on_steps = steps.getText().toString().trim();
 
-                    StorageReference filepath = mStorage.getReference().child("imagePost").child(imageUrl.getLastPathSegment());
-                    filepath.putFile(imageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        if(!(on_title.isEmpty() && on_steps.isEmpty() && on_description.isEmpty() && on_ingredient.isEmpty() && imageUrl != null)){
+            progressDialog.setTitle("uploading........");
+            progressDialog.show();
+
+            StorageReference filepath = mStorage.getReference().child("imagePost").child(imageUrl.getLastPathSegment());
+            filepath.putFile(imageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Uri> task) {
-                                    String t = task.getResult().toString();
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            String t = task.getResult().toString();
 
-                                    DatabaseReference newPost = mRef.push();
+                            DatabaseReference newPost = mRef.push();
 
-                                    newPost.child("Title").setValue(on_title);
-                                    newPost.child("Ingredient").setValue(on_ingredient);
-                                    newPost.child("Description").setValue(on_description);
-                                    newPost.child("Steps").setValue(on_steps);
-                                    newPost.child("Image").setValue(task.getResult().toString());
-                                    progressDialog.dismiss();
+                            newPost.child("Title").setValue(on_title);
+                            newPost.child("Ingredient").setValue(on_ingredient);
+                            newPost.child("Description").setValue(on_description);
+                            newPost.child("Steps").setValue(on_steps);
+                            newPost.child("Image").setValue(task.getResult().toString());
+                            progressDialog.dismiss();
 
-                                }
-                            });
+                            startActivity(new Intent(AddingRecipes.this, MainActivity.class));
+
                         }
                     });
                 }
-            }
-        });
+            });
+        }
     }
 }
 
