@@ -27,7 +27,7 @@ public class SingleViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_view);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Recipes");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
          mPost_key = getIntent().getExtras().getString("Recipe_id");
 
          title = (TextView) findViewById(R.id.one_Title);

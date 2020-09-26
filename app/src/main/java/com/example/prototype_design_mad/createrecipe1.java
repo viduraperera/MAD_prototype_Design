@@ -154,6 +154,8 @@ public class createrecipe1 extends AppCompatActivity {
 //                                    });
 
                                     progressDialog.dismiss();
+                                    Intent intent = new Intent(createrecipe1.this, MainActivity.class);
+                                    startActivity(intent);
                                 }
                             });
                         }

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Recipes");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         mDatabaseUsers.keepSynced(true);
         mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId() == R.id.add_item){
-            startActivity(new Intent(MainActivity.this, AddingRecipes.class));
+            startActivity(new Intent(MainActivity.this, createrecipe1.class));
         }
 
         if(item.getItemId() == R.id.log_out){
