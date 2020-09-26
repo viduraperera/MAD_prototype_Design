@@ -44,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    if(firebaseAuth.getCurrentUser() == null){
+
+                        Intent loginIntent = new Intent(MainActivity.this, RegisterPage.class);
+                        //user cannot go back(IT19008110)
+                        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(loginIntent);
+
+                    }
+            }
+        };
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Recipes");
         mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
 
@@ -58,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        mAuth.addAuthStateListener(mAuthListener);
+
         FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder>(
                 RecipeModel.class,
                 R.layout.single_design_recipe,
@@ -161,6 +180,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, AddingRecipes.class));
         }
 
+        if(item.getItemId() == R.id.log_out){
+
+            logout();
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
+
+    private void logout() {
+
+        mAuth.signOut();
+    }
+
 }
