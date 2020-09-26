@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".create_recipe_update">
+
+    <TextView
+        android:id="@+id/create_recipe_Background_image"
+        android:layout_width="413dp"
+        android:layout_height="731dp"
+        android:background="@drawable/create_recipe_bgimage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/create_recipe1_ingredients_box2"
+        android:layout_width="363dp"
+        android:layout_height="730dp"
+        android:background="@drawable/create_recipe_myrecipe_search"
+        android:backgroundTint="#ABFFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/create_recipe1_ingredients_box7"
+        android:layout_width="283dp"
+        android:layout_height="58dp"
+        android:background="@drawable/create_recipe_myrecipe_search"
+        android:backgroundTint="#99FFC594"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.726" />
+
+    <TextView
+        android:id="@+id/create_recipe1_ingredients_box9"
+        android:layout_width="283dp"
+        android:layout_height="58dp"
+        android:background="@drawable/create_recipe_myrecipe_search"
+        android:backgroundTint="#99FFC594"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
+
+    <TextView
+        android:id="@+id/create_recipe1_ingredients_box10"
+        android:layout_width="283dp"
+        android:layout_height="57dp"
+        android:background="@drawable/create_recipe_myrecipe_search"
+        android:backgroundTint="#99FFC594"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_titile"
+        android:layout_width="183dp"
+        android:layout_height="60dp"
+        android:background="@drawable/create_recipe_box1"
+        android:fontFamily="sans-serif-light"
+        android:text="Prawns And Clams "
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <TextView
+        android:id="@+id/create_recipe_update_btn3"
+        android:layout_width="29dp"
+        android:layout_height="27dp"
+        android:background="@drawable/ic_baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/create_recipe_Backgroup_image"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_igredients"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Ingredients"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_igredients9"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Description"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_igredients2"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Update Recipe"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_procedure_name"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Procedure"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.806" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_igredients8"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Ingredients.."
+        android:textAlignment="center"
+        android:textColor="#B9000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_procedure"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Procedure.."
+        android:textAlignment="center"
+        android:textColor="#B9000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_description"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Description.."
+        android:textAlignment="center"
+        android:textColor="#BF000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.577" />
+
+    <TextView
+        android:id="@+id/create_recipe_view_recipe_delete_recipe_Photo"
+        android:layout_width="153dp"
+        android:layout_height="121dp"
+        android:background="@drawable/create_recipe_myrecipe6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.321" />
+
+    <TextView
+        android:id="@+id/create_recipe_attachment_icon"
+        android:layout_width="22dp"
+        android:layout_height="23dp"
+        android:background="@drawable/ic_baseline_attach_file_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+    <TextView
+        android:id="@+id/create_recipe_update_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/create_recipe_box1"
+        android:backgroundTint="#FFFFFF"
+        android:text="UPDATE RECIPE"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964" />
+
+    <TextView
+        android:id="@+id/create_button"
+        android:layout_width="151dp"
+        android:layout_height="35dp"
+        android:background="@drawable/create_recipe_box1"
+
+        android:backgroundTint="#020202"
+        android:textAlignment="gravity"
+        android:textColor="#F6F3F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/create_recipe_update_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="#FFFFFF"
+        android:text="UPDATE RECIPE"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
