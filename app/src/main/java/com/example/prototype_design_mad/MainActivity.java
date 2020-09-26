@@ -118,6 +118,16 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
+                recipeViewHolder.mReviewBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent reviewIntent = new Intent(MainActivity.this, AddingReview.class);
+                        reviewIntent.putExtra("Recipe_id", post_key);
+                        startActivity(reviewIntent);
+
+                    }
+                });
+
                 recipeViewHolder.mLike.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -184,10 +194,12 @@ public class MainActivity extends AppCompatActivity {
 
         View mView;
 
-        ImageButton mLike;
+        ImageButton mLike, mReviewBtn;
+        TextView DisplayNumberOfLike;
 
         DatabaseReference mDataBaseLike;
         FirebaseAuth mAuth;
+        int countLike;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -195,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
             mView = itemView;
 
             mLike = (ImageButton) mView.findViewById(R.id.recipe_like_btn);
+            mReviewBtn = (ImageButton) mView.findViewById(R.id.reviewBtn);
 
             mDataBaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
             mAuth = FirebaseAuth.getInstance();
@@ -211,10 +224,11 @@ public class MainActivity extends AppCompatActivity {
                     if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
 
                         mLike.setImageResource(R.mipmap.red_button);
-
+                        countLike = (int) dataSnapshot.child(post_key).getChildrenCount();
                     }
                     else{
                        mLike.setImageResource(R.mipmap.baseline_thumb_up_grey_36dp);
+                        countLike = (int) dataSnapshot.child(post_key).getChildrenCount();
                     }
 
                 }
