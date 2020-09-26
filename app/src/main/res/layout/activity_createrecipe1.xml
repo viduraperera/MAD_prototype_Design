@@ -40,7 +40,7 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/createrecipeimage"
+                android:id="@+id/createvimage"
                 android:layout_width="99dp"
                 android:layout_height="91dp"
                 android:layout_gravity="center"
@@ -69,7 +69,8 @@
                 android:backgroundTint="#99FFC594"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
 
             <TextView
                 android:id="@+id/createrecipe1_procedure1"
@@ -93,7 +94,8 @@
                 android:backgroundTint="#99FFC594"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
 
             <TextView
                 android:id="@+id/createrecipe1_Title"
@@ -117,7 +119,8 @@
                 android:backgroundTint="#99FFC594"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
 
 
 
@@ -143,7 +146,8 @@
                 android:backgroundTint="#99FFC594"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
 
 
 

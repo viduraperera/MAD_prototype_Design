@@ -38,7 +38,7 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/createrecipeimage"
+                android:id="@+id/createvimage"
                 android:layout_width="99dp"
                 android:layout_height="91dp"
                 android:layout_gravity="center"

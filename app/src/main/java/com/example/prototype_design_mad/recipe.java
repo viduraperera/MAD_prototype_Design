@@ -4,26 +4,34 @@ import android.view.LayoutInflater;
 import android.widget.ScrollView;
 
 public class recipe {
-    private String imageButton;
-    private String Ingredient;
+    private String Image;
+    private String Ingredients;
     private String Procedure;
     private String Title;
     private String Description;
 
-    public String getImageButton() {
-        return imageButton;
+    public recipe(String image, String ingredients, String procedure, String title, String description) {
+        Image = image;
+        Ingredients = ingredients;
+        Procedure = procedure;
+        Title = title;
+        Description = description;
     }
 
-    public void setImageButton(String imageButton) {
-        this.imageButton = imageButton;
+    public String getImage() {
+        return Image;
     }
 
-    public String getIngredient() {
-        return Ingredient;
+    public void setImage(String image) {
+        Image = image;
     }
 
-    public void setIngredient(String ingredient) {
-        Ingredient = ingredient;
+    public String getIngredients() {
+        return Ingredients;
+    }
+
+    public void setIngredient(String ingredients) {
+        Ingredients = ingredients;
     }
 
     public String getProcedure() {
