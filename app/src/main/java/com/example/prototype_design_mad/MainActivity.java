@@ -32,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewList;
     FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder> firebaseRecyclerAdapter;
+
     DatabaseReference mDatabase;
-    boolean mProcessLike = false;
     DatabaseReference mDatabaseLike;
+    DatabaseReference mDatabaseUsers;
+
+    boolean mProcessLike = false;
+
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                     if(firebaseAuth.getCurrentUser() == null){
 
-                        Intent loginIntent = new Intent(MainActivity.this, RegisterPage.class);
+                        Intent loginIntent = new Intent(MainActivity.this, LoginPage.class);
                         //user cannot go back(IT19008110)
                         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(loginIntent);
@@ -61,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         };
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Recipes");
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabaseUsers.keepSynced(true);
         mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
 
         mDatabaseLike.keepSynced(true);
@@ -69,11 +75,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewList.setHasFixedSize(true);
         recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
 
+        checkUserExist();
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
 
         mAuth.addAuthStateListener(mAuthListener);
 
@@ -135,6 +144,30 @@ public class MainActivity extends AppCompatActivity {
         };
         recyclerViewList.setAdapter(firebaseRecyclerAdapter);
 
+    }
+    private void checkUserExist() {
+
+        final String user_id = mAuth.getCurrentUser().getUid();
+
+        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(!dataSnapshot.hasChild(user_id)){
+
+                    Intent setUpIntent = new Intent(MainActivity.this, SetUpActivity.class);
+                    //user cannot go back(IT19008110)
+                    setUpIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(setUpIntent);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public static class RecipeViewHolder extends RecyclerView.ViewHolder{
