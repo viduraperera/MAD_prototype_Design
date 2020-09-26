@@ -31,7 +31,7 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewList;
-    FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder> firebaseRecyclerAdapter;
+    FirebaseRecyclerAdapter<recipe, RecipeViewHolder> firebaseRecyclerAdapter;
 
     DatabaseReference mDatabase;
     DatabaseReference mDatabaseLike;
@@ -86,26 +86,30 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthListener);
 
-        FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<RecipeModel, RecipeViewHolder>(
-                RecipeModel.class,
+        FirebaseRecyclerAdapter<recipe, RecipeViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<recipe, RecipeViewHolder>(
+                recipe.class,
                 R.layout.single_design_recipe,
                 RecipeViewHolder.class,
                 mDatabase
         ) {
             @Override
-            protected void populateViewHolder(RecipeViewHolder recipeViewHolder, RecipeModel recipeModel, int i) {
+            protected void populateViewHolder(RecipeViewHolder recipeViewHolder, recipe recipeModel, int i) {
 
                 final String post_key = getRef(i).getKey();
 
                 recipeViewHolder.setTitle(recipeModel.getTitle());
                 recipeViewHolder.setDec(recipeModel.getDescription());
                 recipeViewHolder.setImage(getApplicationContext(), recipeModel.getImage());
+                recipeViewHolder.setUserName(recipeModel.getUserName());
+
+                recipeViewHolder.setLikeBtn(post_key);
+
 
                 recipeViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                       // Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, SingleViewActivity.class);
                         intent.putExtra("Recipe_id", post_key);
                         startActivity(intent);
@@ -119,15 +123,22 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                             mProcessLike = true;
 
-                            if(mProcessLike){
                                 mDatabaseLike.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
 
-                                        }
-                                        else {
-                                            mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
+                                        if (mProcessLike) {
+
+
+                                            if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
+
+                                                mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).removeValue();
+
+                                            } else {
+                                                mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
+
+                                            }
+                                            mProcessLike = false;
                                         }
                                     }
 
@@ -136,10 +147,9 @@ public class MainActivity extends AppCompatActivity {
 
                                     }
                                 });
-                            }
+
                     }
                 });
-
             }
         };
         recyclerViewList.setAdapter(firebaseRecyclerAdapter);
@@ -176,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton mLike;
 
+        DatabaseReference mDataBaseLike;
+        FirebaseAuth mAuth;
+
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -183,8 +196,37 @@ public class MainActivity extends AppCompatActivity {
 
             mLike = (ImageButton) mView.findViewById(R.id.recipe_like_btn);
 
+            mDataBaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
+            mAuth = FirebaseAuth.getInstance();
+
+            mDataBaseLike.keepSynced(true);
 
         }
+        public void setLikeBtn(final String post_key) {
+
+            mDataBaseLike.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
+
+                        mLike.setImageResource(R.mipmap.red_button);
+
+                    }
+                    else{
+                       mLike.setImageResource(R.mipmap.baseline_thumb_up_grey_36dp);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+
         public void setTitle(String title){
             TextView post_title = (TextView) mView.findViewById(R.id.single_title);
             post_title.setText(title);
@@ -193,6 +235,12 @@ public class MainActivity extends AppCompatActivity {
             TextView post_description = (TextView) mView.findViewById(R.id.single_description);
             post_description.setText(description);
         }
+
+        public void setUserName(String userName){
+            TextView post_username = (TextView) mView.findViewById(R.id.user_name_view);
+            post_username.setText(userName);
+        }
+
         public void setImage(Context ctc, String image){
             ImageView post_image = (ImageView) mView.findViewById(R.id.single__image);
             Picasso.get().load(image).into(post_image);

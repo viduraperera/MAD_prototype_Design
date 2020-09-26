@@ -43,9 +43,9 @@ public class SingleViewActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String post_title = (String) dataSnapshot.child("Title").getValue();
                 String post_description = (String) dataSnapshot.child("Description").getValue();
-                String post_ingredient = (String) dataSnapshot.child("Ingredient").getValue();
-                String post_step = (String) dataSnapshot.child("Steps").getValue();
-                String post_image = (String) dataSnapshot.child("image").getValue();
+                String post_ingredient = (String) dataSnapshot.child("Ingredients").getValue();
+                String post_step = (String) dataSnapshot.child("Procedure").getValue();
+                String post_image = (String) dataSnapshot.child("Image").getValue();
 
                 title.setText(post_title);
                 description.setText(post_description);

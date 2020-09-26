@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginPage extends AppCompatActivity {
 
     EditText emailLogin, passWordLogin;
-    Button buttonLogin;
+    Button buttonLogin, switchUser;
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReferenceUsers;
@@ -47,6 +47,7 @@ public class LoginPage extends AppCompatActivity {
         passWordLogin = (EditText)findViewById(R.id.login_password);
 
         buttonLogin = (Button)findViewById(R.id.login_button);
+        switchUser = (Button)findViewById(R.id.switch_sign_in);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,18 @@ public class LoginPage extends AppCompatActivity {
                 checkLogin();
             }
         });
+
+        switchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LoginPage.this, "New Account Page", Toast.LENGTH_SHORT).show();
+                Intent RegisterIntent = new Intent(LoginPage.this, RegisterPage.class);
+                //user cannot go back(IT19008110)
+                RegisterIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(RegisterIntent);
+            }
+        });
+
     }
 
     private void checkLogin() {

@@ -42,9 +42,9 @@ public class createrecipe1 extends AppCompatActivity {
     private static final int Gallery_Code = 1;
     Uri imageUrl = null;
 
-//    private FirebaseAuth mAuth;
-//    private FirebaseUser mCurrentUser;
-//    private DatabaseReference mDatabaseUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private DatabaseReference mDatabaseUser;
 
 
 
@@ -53,9 +53,9 @@ public class createrecipe1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createrecipe1);
-//        mAuth = FirebaseAuth.getInstance();
-//        mCurrentUser=mAuth.getCurrentUser();
-//        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+         mAuth = FirebaseAuth.getInstance();
+         mCurrentUser=mAuth.getCurrentUser();
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
         dbRef = FirebaseDatabase.getInstance().getReference("recipe");
 
         textingredients = findViewById(R.id.textingredients);
@@ -123,39 +123,40 @@ public class createrecipe1 extends AppCompatActivity {
                                 public void onComplete(@NonNull final Task<Uri> task) {
                                      String t = task.getResult().toString();
 
-                                    DatabaseReference newPost = dbRef.push();
+                                    final DatabaseReference newPost = dbRef.push();
                                     Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                                     clearControls();
-                                    newPost.child("Ingredients").setValue(in);
-                                    newPost.child("Procedure").setValue(pro);
-                                    newPost.child("Title").setValue(tit);
-                                    newPost.child("Description").setValue(des);
-                                    newPost.child("Image").setValue(task.getResult().toString());
 
-//                                    mDatabaseUser.addValueEventListener(new ValueEventListener() {
-//                                        @Override
-//                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                                            newPost.child("uid").setValue(mCurrentUser.getUid());
-//                                            newPost.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                @Override
-//                                                public void onComplete(@NonNull Task<Void> task) {
-//                                                    if(task.isSuccessful()){
-//                                                        startActivity(new Intent(createrecipe1.this,mycreaterecipe.class));
-//                                                    }
-//                                                }
-//                                            });
-//                                        }
-//
-//                                        @Override
-//                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                                        }
-//                                    });
+
+                                    mDatabaseUser.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                                            newPost.child("Ingredients").setValue(in);
+                                            newPost.child("Procedure").setValue(pro);
+                                            newPost.child("Title").setValue(tit);
+                                            newPost.child("Description").setValue(des);
+                                            newPost.child("Image").setValue(task.getResult().toString());
+                                            newPost.child("uid").setValue(mCurrentUser.getUid());
+
+                                            newPost.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        startActivity(new Intent(createrecipe1.this,MainActivity.class));
+                                                    }
+                                                }
+                                            });
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    });
 
                                     progressDialog.dismiss();
-                                    Intent intent = new Intent(createrecipe1.this, MainActivity.class);
-                                    startActivity(intent);
                                 }
                             });
                         }
