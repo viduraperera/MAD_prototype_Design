@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/user_account"
+        android:icon="@mipmap/baseline_account_box_black_48dp"
+        android:title="account"
+        app:showAsAction="always">
+
+    </item>
+
     <item android:id="@+id/add_item"
         android:icon="@mipmap/baseline_add_to_photos_black_36dp"
         android:title="add post"
@@ -13,10 +20,6 @@
 
     <item android:id="@+id/log_out"
         android:title="Log Out"
-        app:showAsAction="never"/>
-
-    <item android:id="@+id/account"
-        android:title="Account"
         app:showAsAction="never"/>
 
 

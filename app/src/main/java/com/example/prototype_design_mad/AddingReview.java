@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -87,6 +88,58 @@ public class AddingReview extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseRecyclerAdapter<Review, reviewViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Review, reviewViewHolder>(
+                Review.class,
+                R.layout.desgin_review,
+                reviewViewHolder.class,
+                mDatabase
+
+        ) {
+            @Override
+            protected void populateViewHolder(reviewViewHolder reviewViewHolder, Review addingReview, int i) {
+
+                reviewViewHolder.setUsername(addingReview.getUsername());
+                reviewViewHolder.setDate(addingReview.getDate());
+                reviewViewHolder.setReview(addingReview.getReview());
+                reviewViewHolder.setTime(addingReview.getTime());
+
+
+            }
+        };
+        commentsList.setAdapter(firebaseRecyclerAdapter);
+
+    }
+
+    public static class reviewViewHolder extends RecyclerView.ViewHolder{
+        View mView;
+        public reviewViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            mView = itemView;
+        }
+        public void setUsername(String username){
+            TextView myUserName = (TextView) mView.findViewById(R.id.reviewUserName);
+            myUserName.setText("@" + username + "   ");
+
+        }
+        public void setReview(String review){
+            TextView myReview = (TextView) mView.findViewById(R.id.review_text);
+            myReview.setText(review);
+        }
+        public void setDate(String date){
+            TextView myDate = (TextView) mView.findViewById(R.id.reviewDate);
+            myDate.setText("  Date: " + date);
+        }
+        public void setTime(String time){
+            TextView myTime = (TextView) mView.findViewById(R.id.review_time);
+            myTime.setText("  Time: "+ time);
+
+        }
     }
 
     private void validateComment(String userName) {

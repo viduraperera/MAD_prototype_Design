@@ -14,7 +14,9 @@
         <activity android:name=".AddingReview"></activity>
         <activity android:name=".userAccountPage" />
         <activity android:name=".SetUpActivity" />
-        <activity android:name=".LoginPage"></activity>
+        <activity android:name=".LoginPage">
+
+        </activity>
         <activity android:name=".RegisterPage" />
         <activity android:name=".SingleViewActivity" />
         <activity android:name=".MainActivity">

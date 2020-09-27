@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -86,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthListener);
 
+
         FirebaseRecyclerAdapter<recipe, RecipeViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<recipe, RecipeViewHolder>(
                 recipe.class,
                 R.layout.single_design_recipe,
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 recipeViewHolder.setTitle(recipeModel.getTitle());
                 recipeViewHolder.setDec(recipeModel.getDescription());
                 recipeViewHolder.setImage(getApplicationContext(), recipeModel.getImage());
-                recipeViewHolder.setUserName(recipeModel.getUserName());
+                recipeViewHolder.setUserName(recipeModel.getUsername());
 
                 recipeViewHolder.setLikeBtn(post_key);
 
@@ -164,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
         };
         recyclerViewList.setAdapter(firebaseRecyclerAdapter);
 
+
+
     }
     private void checkUserExist() {
 
@@ -195,9 +197,10 @@ public class MainActivity extends AppCompatActivity {
         View mView;
 
         ImageButton mLike, mReviewBtn;
-        TextView DisplayNumberOfLike;
+
 
         DatabaseReference mDataBaseLike;
+        DatabaseReference mDatBaseUser;
         FirebaseAuth mAuth;
         int countLike;
 
@@ -224,11 +227,9 @@ public class MainActivity extends AppCompatActivity {
                     if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
 
                         mLike.setImageResource(R.mipmap.red_button);
-                        countLike = (int) dataSnapshot.child(post_key).getChildrenCount();
                     }
                     else{
                        mLike.setImageResource(R.mipmap.baseline_thumb_up_grey_36dp);
-                        countLike = (int) dataSnapshot.child(post_key).getChildrenCount();
                     }
 
                 }
@@ -271,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+
         if(item.getItemId() == R.id.add_item){
             startActivity(new Intent(MainActivity.this, createrecipe1.class));
         }
@@ -279,6 +281,10 @@ public class MainActivity extends AppCompatActivity {
 
             logout();
 
+        }
+        if(item.getItemId() == R.id.user_account){
+
+            startActivity(new Intent(MainActivity.this, userAccountPage.class));
         }
 
         return super.onOptionsItemSelected(item);

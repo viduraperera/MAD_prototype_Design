@@ -27,7 +27,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 public class SetUpActivity extends AppCompatActivity {
 
     ImageButton mSetUpImage;
-    EditText mName;
+    EditText mName, mAbout;
     Button mSubmitButton;
 
     Uri mImageUri = null;
@@ -54,6 +54,7 @@ public class SetUpActivity extends AppCompatActivity {
 
         mSetUpImage =(ImageButton) findViewById(R.id.SetUpProfile_image);
         mName = (EditText) findViewById(R.id.setUp_name);
+        mAbout =(EditText) findViewById(R.id.setUp_About_id);
         mSubmitButton = (Button) findViewById(R.id.submit_setUp);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +80,7 @@ public class SetUpActivity extends AppCompatActivity {
     private void startSetUpAccount() {
 
         final String name = mName.getText().toString().trim();
+        final String about = mAbout.getText().toString().trim();
 
         final String user_id = mAuth.getCurrentUser().getUid();
 
@@ -96,6 +98,7 @@ public class SetUpActivity extends AppCompatActivity {
                         Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
 
                         mDatabaseUsers.child(user_id).child("name").setValue(name);
+                        mDatabaseUsers.child(user_id).child("about").setValue(about);
                         mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
 
                         progressDialog.dismiss();
