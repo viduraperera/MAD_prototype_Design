@@ -15,23 +15,37 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.provider.FirebaseInitProvider;
 import com.squareup.picasso.Picasso;
 
 public class mycreaterecipe extends AppCompatActivity {
 
     private RecyclerView mycreatelist;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private DatabaseReference mDatabase;
+
+    private DatabaseReference mDatabaseCurrentUser;
+
+    private Query mQueryCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mycreaterecipe);
-
+        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
+        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("recipe");
 
+        String currentUserId = mAuth.getCurrentUser().getUid();
+
+        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("recipe");
+        mQueryCurrentUser= mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserId);
         mycreatelist = (RecyclerView) findViewById(R.id.createlist);
         mycreatelist.setHasFixedSize(true);
         mycreatelist.setLayoutManager(new LinearLayoutManager(this));
@@ -45,7 +59,7 @@ public class mycreaterecipe extends AppCompatActivity {
             recipe.class,
             R.layout.mycardlist,
             MyCreateRecipeHolder.class,
-                mDatabase
+                mQueryCurrentUser
 
                 ){
             @Override

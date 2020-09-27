@@ -23,7 +23,13 @@
         </activity>
         <activity android:name=".crearerecipesingleview"></activity>
         <activity android:name=".MyRecipeUpdate"></activity>
-        <activity android:name=".mycreaterecipe"></activity>
+        <activity android:name=".mycreaterecipe">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".createrecipe1"></activity>
         <activity android:name=".RegisterPage" />
         <activity android:name=".SingleViewActivity" />
@@ -38,9 +44,7 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- onella -->
         <!-- functions -->
-        <activity android:name=".crearerecipesingleview" />
-        <activity android:name=".mycreaterecipe" />
-        <activity android:name=".createrecipe1" />
+
 
 
     </application>

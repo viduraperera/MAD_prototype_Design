@@ -19,8 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class crearerecipesingleview extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class crearerecipesingleview extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
-//    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     private ImageView msigImage;
     private TextView msigTitle;
@@ -47,7 +46,7 @@ public class crearerecipesingleview extends AppCompatActivity {
         mpost_key = getIntent().getExtras().getString("viewID");
 
 
-//        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
 
         msigTitle = (TextView) findViewById(R.id.mcreatevtitle);
@@ -68,7 +67,7 @@ public class crearerecipesingleview extends AppCompatActivity {
                 String myprocedure = (String) dataSnapshot.child("Procedure").getValue().toString();
                 String myDescription = (String) dataSnapshot.child("Description").getValue().toString();
                 String myimage = (String) dataSnapshot.child("Image").getValue().toString();
-//                String myuserid = (String) dataSnapshot.child("uid").getValue();
+                String myuserid = (String) dataSnapshot.child("uid").getValue();
 
                 msigTitle.setText(mytitle);
                 msigDescription.setText(myDescription);
@@ -77,9 +76,9 @@ public class crearerecipesingleview extends AppCompatActivity {
 
                 Picasso.get().load(myimage).into(msigImage);
 
-//                if(mAuth.getCurrentUser().getUid().equals(post_uid){
-//                    msigDeleteButton.setVisibility(View.VISIBLE);
-//                }
+                if(mAuth.getCurrentUser().getUid().equals(myuserid)){
+                    msigDeleteButton.setVisibility(View.VISIBLE);
+                }
 
             }
 
