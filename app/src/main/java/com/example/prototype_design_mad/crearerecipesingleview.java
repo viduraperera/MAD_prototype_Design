@@ -19,12 +19,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class crearerecipesingleview extends AppCompatActivity {
 
     private String mpost_key = null;
 
     private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+
+//    private FirebaseAuth mAuth;
 
     private ImageView msigImage;
     private TextView msigTitle;
@@ -33,6 +37,7 @@ public class crearerecipesingleview extends AppCompatActivity {
     private TextView msigProcedure;
     private Button msigDeleteButton;
     private Button msigUpdateButton;
+//    recipe recipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class crearerecipesingleview extends AppCompatActivity {
         setContentView(R.layout.activity_crearerecipesingleview);
 
         mpost_key = getIntent().getExtras().getString("viewID");
+
 
 //        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
@@ -51,17 +57,17 @@ public class crearerecipesingleview extends AppCompatActivity {
         msigImage = (ImageView) findViewById(R.id.mvimage);
 
         msigDeleteButton = (Button) findViewById(R.id.myvdeletebutton);
-        msigUpdateButton = (Button) findViewById(R.id.myeditbutton2);
+//        msigUpdateButton = (Button) findViewById(R.id.myeditbutton2);
 
 
         mDatabase.child(mpost_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String mytitle = (String) dataSnapshot.child("Title").getValue();
-                String myingredent =(String) dataSnapshot.child("Ingredients").getValue();
-                String myprocedure =(String) dataSnapshot.child("Procedure").getValue();
-                String myDescription = (String) dataSnapshot.child("Description").getValue();
-                String myimage = (String) dataSnapshot.child("Image").getValue();
+                String mytitle = (String) dataSnapshot.child("Title").getValue().toString();
+                String myingredent = (String) dataSnapshot.child("Ingredients").getValue().toString();
+                String myprocedure = (String) dataSnapshot.child("Procedure").getValue().toString();
+                String myDescription = (String) dataSnapshot.child("Description").getValue().toString();
+                String myimage = (String) dataSnapshot.child("Image").getValue().toString();
 //                String myuserid = (String) dataSnapshot.child("uid").getValue();
 
                 msigTitle.setText(mytitle);
@@ -86,10 +92,10 @@ public class crearerecipesingleview extends AppCompatActivity {
         msigDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               mDatabase.child(mpost_key).removeValue();
+                mDatabase.child(mpost_key).removeValue();
 
-               Intent mainIntent = new Intent(crearerecipesingleview.this, mycreaterecipe.class);
-               startActivity(mainIntent);
+                Intent mainIntent = new Intent(crearerecipesingleview.this, mycreaterecipe.class);
+                startActivity(mainIntent);
             }
 
         });
@@ -97,25 +103,28 @@ public class crearerecipesingleview extends AppCompatActivity {
 //        msigUpdateButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                DatabaseReference upRef=FirebaseDatabase.getInstance().getReference().child("Student");
+//                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child(mpost_key);
+////
 //                upRef.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if(dataSnapshot.hasChild("recipe")){
-//                            try{
-//                                recipe.msigTitle(msigIngredents.getText().toString().trim());
-//                                recipe.setName(txt2.getText().toString().trim());
-//                                recipe.setAddress(txt3.getText().toString().trim());
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+////                        dataSnapshot.getRef().child("recipe").setValue(msigIngredents.getText().toString().trim());
+//                        if (dataSnapshot.hasChild("recipe")) {
 //
-//                                mDatabase=FirebaseDatabase.getInstance().getReference().child("recipe");
-//                                mDatabase.setValue(mDatabase);
-//                                clearControls();
-//                                Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+//                            recipe.setIngredient(msigIngredents.getText().toString().trim());
+//                            recipe.setProcedure(msigProcedure.getText().toString().trim());
+//                            recipe.setDescription(msigDescription.getText().toString().trim());
+//                            recipe.setTitle(msigTitle.getText().toString().trim());
+////                                recipe.setImage(msigImage.get().toString().trim());
 //
-//                            }catch(NumberFormatException e){
-//                                Toast.makeText(MainActivity.this, "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+//                            mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
+//                            mDatabase.setValue(recipe);
+////                                clearControls();
+//                            Toast.makeText(crearerecipesingleview.this, "Data Updated", Toast.LENGTH_SHORT).show();
 //
-//                            }
+//
+//                        } else {
+//                            Toast.makeText(crearerecipesingleview.this, "Data  not Updated", Toast.LENGTH_SHORT).show();
 //                        }
 //                    }
 //
@@ -124,10 +133,7 @@ public class crearerecipesingleview extends AppCompatActivity {
 //
 //                    }
 //                });
-//
-//            }
-//        });
-
-
     }
+
+
 }
