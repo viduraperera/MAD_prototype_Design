@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prototype_design_mad">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,22 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyRecipeUpdate"></activity>
+        <activity android:name=".AddingReview"></activity>
+        <activity android:name=".userAccountPage" />
+        <activity android:name=".SetUpActivity" />
+        <activity android:name=".LoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".crearerecipesingleview"></activity>
-        <activity android:name=".mycreaterecipe">
+        <activity android:name=".MyRecipeUpdate"></activity>
+        <activity android:name=".mycreaterecipe"></activity>
+        <activity android:name=".createrecipe1"></activity>
+        <activity android:name=".RegisterPage" />
+        <activity android:name=".SingleViewActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".createrecipe1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- onella -->
+        <!-- functions -->
+        <activity android:name=".crearerecipesingleview" />
+        <activity android:name=".mycreaterecipe" />
+        <activity android:name=".createrecipe1" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
 

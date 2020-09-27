@@ -41,10 +41,11 @@
 
             <ImageButton
                 android:id="@+id/createvimage"
-                android:layout_width="99dp"
-                android:layout_height="91dp"
+                android:layout_width="278dp"
+                android:layout_height="227dp"
                 android:layout_gravity="center"
-                android:background="@drawable/unnamed" />
+                android:background="@drawable/unnamed"
+                android:src="@mipmap/add_btn" />
 
             <TextView
                 android:id="@+id/createrecipe1_ingredients"
