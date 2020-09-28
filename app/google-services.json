@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "115225912483",
+    "firebase_url": "https://prototype-design-mad-4ea85.firebaseio.com",
+    "project_id": "prototype-design-mad-4ea85",
+    "storage_bucket": "prototype-design-mad-4ea85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115225912483:android:81c03161dd4f73bcdacb16",
+        "android_client_info": {
+          "package_name": "com.example.prototype_design_mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115225912483-iu651nkmg22n9sqpq8n8eegb0hrlkh5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbO-HY5a15flPtB7FFm3hF7v2kAR6jCVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115225912483-iu651nkmg22n9sqpq8n8eegb0hrlkh5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
