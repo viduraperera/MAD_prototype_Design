@@ -6,10 +6,22 @@
     android:layout_margin="20dp"
     android:background="@drawable/create_recipe_bgimage"
     app:cardBackgroundColor="@color/common_google_signin_btn_text_dark_disabled">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Created Recipes"
+        android:textSize="24dp"></TextView>
+</LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="286dp"
 
         android:orientation="vertical">
 

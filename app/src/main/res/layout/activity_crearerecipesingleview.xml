@@ -64,7 +64,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/create_recipe_myrecipe_search"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="#9FF4F3F3"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"

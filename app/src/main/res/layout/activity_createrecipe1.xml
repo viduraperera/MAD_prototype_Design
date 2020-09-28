@@ -19,10 +19,12 @@
 
             <TextView
                 android:id="@+id/createrecipe1_ingredients2"
-                android:layout_width="317dp"
-                android:layout_height="78dp"
+                android:layout_width="272dp"
+                android:layout_height="43dp"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#9CFFFFFF"
                 android:text="   Create Recipe"
-                android:textColor="#000000"
+                android:textColor="#5EAA06"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -44,7 +46,6 @@
                 android:layout_width="278dp"
                 android:layout_height="227dp"
                 android:layout_gravity="center"
-                android:background="@drawable/unnamed"
                 android:src="@mipmap/add_btn" />
 
             <TextView
@@ -67,7 +68,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/create_recipe_box1"
-                android:backgroundTint="#99FFC594"
+                android:backgroundTint="#99FFFFFF"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
@@ -92,7 +93,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/create_recipe_box1"
-                android:backgroundTint="#99FFC594"
+                android:backgroundTint="#99FFFFFF"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
@@ -117,7 +118,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/create_recipe_box1"
-                android:backgroundTint="#99FFC594"
+                android:backgroundTint="#99FFFFFF"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
@@ -144,12 +145,11 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/create_recipe_box1"
-                android:backgroundTint="#99FFC594"
+                android:backgroundTint="#99FFFFFF"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
-
 
 
             <Button
@@ -158,10 +158,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="40dp"
-                android:text="Create Recipe"
                 android:background="@drawable/create_recipe_box1"
                 android:backgroundTint="#0C0B0B"
-                android:textColor="@color/colorPrimary" />
+                android:text="Create Recipe"
+                android:textColor="#9ADF49" />
 
 
         </LinearLayout>

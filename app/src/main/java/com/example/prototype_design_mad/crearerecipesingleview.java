@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +24,7 @@ import com.squareup.picasso.Picasso;
 
 public class crearerecipesingleview extends AppCompatActivity {
 
-    private String mpost_key = null;
+     String mpost_key = null;
 
     private DatabaseReference mDatabase;
 
@@ -43,11 +44,13 @@ public class crearerecipesingleview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crearerecipesingleview);
 
-        mpost_key = getIntent().getExtras().getString("viewID");
 
+        mpost_key = getIntent().getStringExtra("viewID");
 
-        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
+        mAuth = FirebaseAuth.getInstance();
+
+
 
         msigTitle = (TextView) findViewById(R.id.mcreatevtitle);
         msigDescription = (TextView) findViewById(R.id.mcreatvdescription);
@@ -56,12 +59,23 @@ public class crearerecipesingleview extends AppCompatActivity {
         msigImage = (ImageView) findViewById(R.id.mvimage);
 
         msigDeleteButton = (Button) findViewById(R.id.myvdeletebutton);
-//        msigUpdateButton = (Button) findViewById(R.id.myeditbutton2);
+        msigUpdateButton = (Button) findViewById(R.id.myeditbutton2);
 
 
         mDatabase.child(mpost_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                recipe recipe = dataSnapshot.getValue(recipe.class);
+//
+//                String mytitle = recipe.getTitle();
+//                String myingredent = recipe.getDescription();
+//                String myprocedure = recipe.getProcedure();
+//                String myDescription = recipe.getDescription();
+//                String myimage = recipe.getImage();
+//                String myuserid = recipe.getUid();
+
+
                 String mytitle = (String) dataSnapshot.child("Title").getValue().toString();
                 String myingredent = (String) dataSnapshot.child("Ingredients").getValue().toString();
                 String myprocedure = (String) dataSnapshot.child("Procedure").getValue().toString();
@@ -76,7 +90,7 @@ public class crearerecipesingleview extends AppCompatActivity {
 
                 Picasso.get().load(myimage).into(msigImage);
 
-                if(mAuth.getCurrentUser().getUid().equals(myuserid)){
+                if (mAuth.getCurrentUser().getUid().equals(myuserid)) {
                     msigDeleteButton.setVisibility(View.VISIBLE);
                 }
 
@@ -87,7 +101,7 @@ public class crearerecipesingleview extends AppCompatActivity {
 
             }
         });
-
+//
         msigDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,40 +112,22 @@ public class crearerecipesingleview extends AppCompatActivity {
             }
 
         });
+        msigUpdateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase =FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("recipe").child(mpost_key).child("Title").setValue(msigTitle.getText().toString());
+                mDatabase.child("recipe").child(mpost_key).child("Description").setValue(msigDescription.getText().toString());
+                mDatabase.child("recipe").child(mpost_key).child("Ingredients").setValue(msigIngredents.getText().toString());
+                mDatabase.child("recipe").child(mpost_key).child("Procedure").setValue(msigProcedure.getText().toString());
+//                mDatabase.child("recipe").child("uid").child("Ingredients").setValue(msigTitle.getText().toString().trim())
+           Toast.makeText(getApplicationContext(),"update success",Toast.LENGTH_SHORT).show();
+                Intent mIntent = new Intent(crearerecipesingleview.this, mycreaterecipe.class);
+                startActivity(mIntent);
+            }
+        });
 
-//        msigUpdateButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child(mpost_key);
-////
-//                upRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-////                        dataSnapshot.getRef().child("recipe").setValue(msigIngredents.getText().toString().trim());
-//                        if (dataSnapshot.hasChild("recipe")) {
-//
-//                            recipe.setIngredient(msigIngredents.getText().toString().trim());
-//                            recipe.setProcedure(msigProcedure.getText().toString().trim());
-//                            recipe.setDescription(msigDescription.getText().toString().trim());
-//                            recipe.setTitle(msigTitle.getText().toString().trim());
-////                                recipe.setImage(msigImage.get().toString().trim());
-//
-//                            mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
-//                            mDatabase.setValue(recipe);
-////                                clearControls();
-//                            Toast.makeText(crearerecipesingleview.this, "Data Updated", Toast.LENGTH_SHORT).show();
-//
-//
-//                        } else {
-//                            Toast.makeText(crearerecipesingleview.this, "Data  not Updated", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
+
     }
 
 
