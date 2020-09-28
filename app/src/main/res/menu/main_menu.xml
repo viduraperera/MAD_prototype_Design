@@ -22,5 +22,11 @@
         android:title="Log Out"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_search"
+        android:title="Search"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_search"/>
+
 
 </menu>

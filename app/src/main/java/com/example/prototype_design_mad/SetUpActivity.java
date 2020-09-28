@@ -32,14 +32,14 @@ public class SetUpActivity extends AppCompatActivity {
 
     Uri mImageUri = null;
 
-     private  static  final int GALLERY_REQUEST = 1;
+    private  static  final int GALLERY_REQUEST = 1;
 
-     DatabaseReference mDatabaseUsers;
-     StorageReference mStorageImage;
+    DatabaseReference mDatabaseUsers;
+    StorageReference mStorageImage;
 
-     ProgressDialog progressDialog;
+    ProgressDialog progressDialog;
 
-     FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,29 +89,29 @@ public class SetUpActivity extends AppCompatActivity {
             progressDialog.setMessage("Finishing Setup....");
             progressDialog.show();
 
-                StorageReference filePath = mStorageImage.child(mImageUri.getLastPathSegment());
+            StorageReference filePath = mStorageImage.child(mImageUri.getLastPathSegment());
 
-                filePath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            filePath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
+                    Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
 
-                        mDatabaseUsers.child(user_id).child("name").setValue(name);
-                        mDatabaseUsers.child(user_id).child("about").setValue(about);
-                        mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
+                    mDatabaseUsers.child(user_id).child("name").setValue(name);
+                    mDatabaseUsers.child(user_id).child("about").setValue(about);
+                    mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
 
-                        progressDialog.dismiss();
+                    progressDialog.dismiss();
 
-                        Intent MainIntent = new Intent(SetUpActivity.this, MainActivity.class);
-                        //user cannot go back(IT19008110)
-                        MainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(MainIntent);
+                    Intent MainIntent = new Intent(SetUpActivity.this, MainActivity.class);
+                    //user cannot go back(IT19008110)
+                    MainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(MainIntent);
 
-                        // newPost.child("image").setValue(downloadUrl.toString());
-                      //  Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
-                    }
-                });
+                    // newPost.child("image").setValue(downloadUrl.toString());
+                    //  Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
+                }
+            });
 
 
 

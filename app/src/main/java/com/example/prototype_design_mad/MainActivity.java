@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    if(firebaseAuth.getCurrentUser() == null){
+                if(firebaseAuth.getCurrentUser() == null){
 
-                        Intent loginIntent = new Intent(MainActivity.this, LoginPage.class);
-                        //user cannot go back(IT19008110)
-                        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(loginIntent);
+                    Intent loginIntent = new Intent(MainActivity.this, LoginPage.class);
+                    //user cannot go back(IT19008110)
+                    loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(loginIntent);
 
-                    }
+                }
             }
         };
 
@@ -131,32 +131,32 @@ public class MainActivity extends AppCompatActivity {
                 recipeViewHolder.mLike.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                            mProcessLike = true;
+                        mProcessLike = true;
 
-                                mDatabaseLike.addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        mDatabaseLike.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                        if (mProcessLike) {
+                                if (mProcessLike) {
 
 
-                                            if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
+                                    if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
 
-                                                mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).removeValue();
+                                        mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).removeValue();
 
-                                            } else {
-                                                mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
-
-                                            }
-                                            mProcessLike = false;
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    } else {
+                                        mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
 
                                     }
-                                });
+                                    mProcessLike = false;
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
 
                     }
                 });
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                         mLike.setImageResource(R.mipmap.red_button);
                     }
                     else{
-                       mLike.setImageResource(R.mipmap.baseline_thumb_up_grey_36dp);
+                        mLike.setImageResource(R.mipmap.baseline_thumb_up_grey_36dp);
                     }
 
                 }
