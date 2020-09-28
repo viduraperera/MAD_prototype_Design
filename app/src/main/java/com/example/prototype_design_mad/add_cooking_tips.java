@@ -29,7 +29,7 @@ public class add_cooking_tips extends AppCompatActivity
 {
 
     private ImageButton add_image;
-
+//hughyhu
     private EditText caption_id;
     private EditText category_id;
     private EditText description_id;
