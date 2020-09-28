@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prototype_design_mad.ItemClickListener;
+import com.example.prototype_design_mad.Interface.ItemClickListener;
 import com.example.prototype_design_mad.R;
 
 public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

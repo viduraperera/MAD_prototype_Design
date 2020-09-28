@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Add new Task"
+        android:text="Task"
         android:gravity="center"
         android:background="@drawable/button_round"
         android:padding="10dp"

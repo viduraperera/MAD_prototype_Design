@@ -1,4 +1,4 @@
-package com.example.prototype_design_mad;
+package com.example.prototype_design_mad.Model;
 
 public class Recipe_ToDoList {
 

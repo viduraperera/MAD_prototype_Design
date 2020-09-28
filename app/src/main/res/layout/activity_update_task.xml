@@ -13,13 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Add new Task"
+        android:text=" Task"
         android:gravity="center"
         android:background="@drawable/button_round"
         android:padding="10dp"
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="20sp"
+        />
+
+    <ImageButton
+        android:id="@+id/imageView"
+        android:layout_width="135dp"
+        android:layout_height="119dp"
+        android:background="@drawable/button1"
+        android:layout_gravity="center"
         />
 
     <LinearLayout
@@ -47,7 +55,7 @@
             android:layout_weight="4">
 
             <EditText
-                android:id="@+id/AddRecipe"
+                android:id="@+id/UpdateRecipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Recipe"
@@ -83,7 +91,7 @@
             android:layout_weight="4">
 
             <EditText
-                android:id="@+id/AddDate"
+                android:id="@+id/UpdateDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pick a Date"
@@ -119,7 +127,7 @@
             android:layout_weight="4">
 
             <EditText
-                android:id="@+id/AddTime"
+                android:id="@+id/UpdateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pick a Time"
@@ -155,7 +163,7 @@
             android:layout_weight="4">
 
             <EditText
-                android:id="@+id/AddIngredients"
+                android:id="@+id/UpdateIngredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ingredients"
@@ -177,35 +185,20 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/cancelBtn"
-                android:text="Cancel"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:background="@drawable/button_round"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2">
-
-            <Button
                 android:id="@+id/updateBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_round"
                 android:text="Update"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:background="@drawable/button_round"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold" />
+
 
         </RelativeLayout>
     </LinearLayout>

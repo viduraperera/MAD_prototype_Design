@@ -23,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.prototype_design_mad.Model.Recipe_ToDoList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -41,7 +42,7 @@ public class AddTask extends AppCompatActivity {
     Button btnSave;
     DatabaseReference dbRef;
     Recipe_ToDoList Model;
-    FirebaseDatabase mDatabase;
+//    FirebaseDatabase mDatabase;
     FirebaseStorage mStorage;
     ImageButton imageButton;
     private static final int Gallery_Code = 1;
@@ -56,7 +57,7 @@ public class AddTask extends AppCompatActivity {
 
         dbRef = FirebaseDatabase.getInstance().getReference("Recipe_toDoList");
 
-//
+
         imageButton = findViewById(R.id.imageView);
         recipe = findViewById(R.id.AddRecipe);
         date = findViewById(R.id.AddDate);
@@ -65,8 +66,7 @@ public class AddTask extends AppCompatActivity {
         btnSave = findViewById(R.id.saveBtn);
         Model = new Recipe_ToDoList();
 
-//        mDatabase = FirebaseDatabase.getInstance();
-//        dbRef = mDatabase.getReference().child("Recipe_toDoList");
+
         mStorage = FirebaseStorage.getInstance();
         progressDialog = new ProgressDialog(this);
 
