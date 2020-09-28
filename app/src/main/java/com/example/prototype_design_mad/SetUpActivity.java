@@ -24,7 +24,8 @@ import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
-public class SetUpActivity extends AppCompatActivity {
+public class
+SetUpActivity extends AppCompatActivity {
 
     ImageButton mSetUpImage;
     EditText mName, mAbout;
