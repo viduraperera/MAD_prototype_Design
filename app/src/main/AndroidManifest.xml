@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prototype_design_mad">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddingReview"></activity>
+        <activity android:name=".userAccountPage" />
+        <activity android:name=".SetUpActivity" />
+        <activity android:name=".LoginPage">
+        </activity>
+        <activity android:name=".RegisterPage" />
+        <activity android:name=".SingleViewActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".my_tips_page"
             android:label="My Tips">
             <intent-filter>
@@ -48,33 +62,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user_profile_page"
-            android:label="Upadte Profile">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".login_page"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".register_page"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".loading_screen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <!--<intent-filter>
@@ -92,13 +79,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter> -->
         </activity>
-        <activity android:name=".MainActivity">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- onella -->
+        <!-- functions -->
+        <activity android:name=".crearerecipesingleview" />
+        <activity android:name=".mycreaterecipe" />
+        <activity android:name=".createrecipe1" />
     </application>
 
 </manifest>
