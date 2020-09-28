@@ -7,11 +7,17 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".AddingReview"></activity>
+        <activity android:name=".userAccountPage" />
+        <activity android:name=".SetUpActivity" />
+        <activity android:name=".LoginPage">
+        </activity>
+        <activity android:name=".RegisterPage" />
+        <activity android:name=".SingleViewActivity" />
         <activity android:name=".ToDoList"
             android:label="To-Do List">
             <intent-filter>
@@ -20,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".AddTask"
             android:label="New Task">
             <intent-filter>
@@ -57,10 +62,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- onella -->
+        <!-- functions -->
+        <activity android:name=".crearerecipesingleview" />
+        <activity android:name=".mycreaterecipe" />
+        <activity android:name=".createrecipe1" />
     </application>
 
 </manifest>
