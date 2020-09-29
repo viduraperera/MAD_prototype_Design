@@ -63,15 +63,15 @@ public class mycreaterecipe extends AppCompatActivity {
 
                 ){
             @Override
-            protected void populateViewHolder(MyCreateRecipeHolder myCreateRecipeHolder, recipe recipe, int i) {
+            protected void populateViewHolder(MyCreateRecipeHolder myCreateRecipeHolder, recipe io, int i) {
 
                 final String post_key = getRef(i).getKey();
 
-                myCreateRecipeHolder.setTitle(recipe.getTitle());
-                myCreateRecipeHolder.setDescription(recipe.getDescription());
-                myCreateRecipeHolder.setIngredients(recipe.getIngredients());
-                myCreateRecipeHolder.setProcedure(recipe.getProcedure());
-                myCreateRecipeHolder.setImage(getApplicationContext(),recipe.getImage());
+                myCreateRecipeHolder.setTitle(io.getTitle());
+                myCreateRecipeHolder.setDescription(io.getDescription());
+                myCreateRecipeHolder.setIngredients(io.getIngredients());
+                myCreateRecipeHolder.setProcedure(io.getProcedure());
+                myCreateRecipeHolder.setImage(getApplicationContext(),io.getImage());
 
                 myCreateRecipeHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override

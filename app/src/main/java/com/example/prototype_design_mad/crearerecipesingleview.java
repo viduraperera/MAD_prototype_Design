@@ -48,6 +48,7 @@ public class crearerecipesingleview extends AppCompatActivity {
         mpost_key = getIntent().getStringExtra("viewID");
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -65,15 +66,6 @@ public class crearerecipesingleview extends AppCompatActivity {
         mDatabase.child(mpost_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                recipe recipe = dataSnapshot.getValue(recipe.class);
-//
-//                String mytitle = recipe.getTitle();
-//                String myingredent = recipe.getDescription();
-//                String myprocedure = recipe.getProcedure();
-//                String myDescription = recipe.getDescription();
-//                String myimage = recipe.getImage();
-//                String myuserid = recipe.getUid();
 
 
                 String mytitle = (String) dataSnapshot.child("Title").getValue().toString();
