@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -68,6 +70,18 @@ public class userAccountPage extends AppCompatActivity {
            @Override
            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+           }
+       });
+
+       pro_edit.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               mDatabase = FirebaseDatabase.getInstance().getReference();
+               mDatabase.child("Users").child(userID).child("name").setValue(name.getText().toString());
+               mDatabase.child("Users").child(userID).child("about").setValue(about.getText().toString());
+               Toast.makeText(getApplicationContext(),"update success",Toast.LENGTH_SHORT).show();
+               Intent updateIntent = new Intent(userAccountPage.this, MainActivity.class);
+               startActivity(updateIntent);
            }
        });
 
