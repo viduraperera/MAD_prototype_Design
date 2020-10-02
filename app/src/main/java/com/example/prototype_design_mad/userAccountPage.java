@@ -85,6 +85,13 @@ public class userAccountPage extends AppCompatActivity {
            }
        });
 
-
+        pro_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase.child(userID).removeValue();
+                Intent mainIntent = new Intent(userAccountPage.this, LoginPage.class);
+                startActivity(mainIntent);
+            }
+        });
     }
 }

@@ -1,5 +1,6 @@
 package com.example.prototype_design_mad;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -95,11 +97,16 @@ public class SetUpActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
+                    Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            final String t = task.getResult().toString();
 
-                    mDatabaseUsers.child(user_id).child("name").setValue(name);
-                    mDatabaseUsers.child(user_id).child("about").setValue(about);
-                    mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
+                            mDatabaseUsers.child(user_id).child("name").setValue(name);
+                            mDatabaseUsers.child(user_id).child("about").setValue(about);
+                            mDatabaseUsers.child(user_id).child("image").setValue(task.getResult().toString());
+                        }
+                    });
 
                     progressDialog.dismiss();
 
