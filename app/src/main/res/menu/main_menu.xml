@@ -9,14 +9,23 @@
 
     </item>
 
+    <item
+        android:id="@+id/my_tips"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="account"
+        app:showAsAction="always">
+
+    </item>
+
     <item android:id="@+id/add_item"
         android:icon="@mipmap/baseline_add_to_photos_black_36dp"
         android:title="add post"
         app:showAsAction="always" />
 
-    <item android:id="@+id/action_settings"
-        android:title="settings"
-        app:showAsAction="never"/>
+    <item
+        android:id="@+id/add_tip"
+        android:title="Add a Tip"
+        app:showAsAction="never" />
 
     <item android:id="@+id/log_out"
         android:title="Log Out"
