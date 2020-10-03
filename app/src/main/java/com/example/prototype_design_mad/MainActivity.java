@@ -302,6 +302,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, ToDoList.class));
         }
 
+        /*Siri my tips_menu*/
+        if(item.getItemId() == R.id.my_tips){
+
+            startActivity(new Intent(MainActivity.this, my_tips_page.class));
+        }
+
+        /*Siri add tip_menu*/
+        if(item.getItemId() == R.id.add_tip){
+
+            startActivity(new Intent(MainActivity.this, add_cooking_tips.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -51,6 +51,33 @@
         <activity android:name=".mycreaterecipe" />
         <activity android:name=".createrecipe1"
             android:label="Create Recipe"> </activity>
+
+        <activity
+            android:name=".TipDetailedView"
+            android:label="View my Tip"></activity>
+
+        <activity
+            android:name=".my_tips_page"
+            android:label="My Tips">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".add_cooking_tips"
+            android:label="Tip of the Day">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterPage extends AppCompatActivity {
+public class  RegisterPage extends AppCompatActivity {
 
     EditText name, email, password;
     Button submit_signIn;

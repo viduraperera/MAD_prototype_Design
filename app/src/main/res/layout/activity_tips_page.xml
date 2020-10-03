@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tipback2"
+    tools:context=".tips_page">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFA94D"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/habibi"
+        android:text="Tips"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageView
+        android:id="@+id/menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="375dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_action_name"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="214dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="@+id/searchtip"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/searchbar" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="?android:attr/actionModeWebSearchDrawable"
+        tools:layout_editor_absoluteX="362dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+    <TextView
+        android:id="@+id/searchtip"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/habibi"
+        android:text="Search for Culinary Tips!"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnarray1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnarray1"
+        android:layout_width="70dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#FFCE99"
+        android:text="Cook"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnarray2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/btnarray2"
+        android:layout_width="74dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#FFCE99"
+        android:text="Steam"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnarray3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnarray1"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/btnarray3"
+        android:layout_width="74dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#FFCE99"
+        android:text="BBQ"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnarray4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnarray2"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/btnarray4"
+        android:layout_width="70dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#FFCE99"
+        android:text="Fry"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnarray5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnarray3"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/btnarray5"
+        android:layout_width="74dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#FFCE99"
+        android:text="Grill"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnarray4"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <ImageView
+        android:id="@+id/tip1"
+        android:layout_width="388dp"
+        android:layout_height="320dp"
+        android:layout_marginStart="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tip1"
+        tools:layout_editor_absoluteY="109dp" />
+
+    <ImageView
+        android:id="@+id/tip2"
+        android:layout_width="388dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnarray3"
+        app:srcCompat="@drawable/tip2" />
+
+    <ImageView
+        android:id="@+id/tip3"
+        android:layout_width="388dp"
+        android:layout_height="320dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tip3"
+        tools:layout_editor_absoluteY="330dp" />
+
+    <ImageView
+        android:id="@+id/tip4"
+        android:layout_width="388dp"
+        android:layout_height="320dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tip4"
+        tools:layout_editor_absoluteY="438dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="46dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/plusicon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
