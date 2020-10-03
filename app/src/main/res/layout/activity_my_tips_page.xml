@@ -16,14 +16,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_tip_btn"
-        android:layout_width="73dp"
-        android:layout_height="73dp"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:src="@drawable/ic_baseline_control_point_24"
+        android:src="@mipmap/baseline_add_white_24dp"
         app:backgroundTint="#D15E50" />
 
 

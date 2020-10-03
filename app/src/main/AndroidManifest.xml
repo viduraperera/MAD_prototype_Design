@@ -11,27 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TipDetailedView"></activity>
+        <activity android:name=".all_tips"></activity>
+        <activity
+            android:name=".TipDetailedView"
+            android:label="View my Tip"></activity>
         <activity android:name=".AddingReview" />
         <activity android:name=".userAccountPage" />
         <activity android:name=".SetUpActivity" />
         <activity android:name=".LoginPage">
-<!--             <intent-filter>-->
-<!--             <action android:name="android.intent.action.MAIN" />-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-<!--             <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".RegisterPage"></activity>
+        <activity android:name=".RegisterPage" />
         <activity android:name=".SingleViewActivity" />
         <activity android:name=".MainActivity">
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".my_tips_page"

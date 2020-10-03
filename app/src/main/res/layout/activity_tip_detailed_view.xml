@@ -27,12 +27,13 @@
                 android:padding="10dp"
                 tools:srcCompat="@android:drawable/ic_menu_gallery" />
 
-            <TextView
+            <EditText
                 android:id="@+id/post_Tip_Caption"
-                android:layout_width="225dp"
-                android:layout_height="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:backgroundTint="#00FFFFFF"
                 android:text="Tip Caption"
                 android:textAlignment="center"
                 android:textSize="24sp"
@@ -49,19 +50,20 @@
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_height="45dp"
                     android:layout_weight="1"
                     app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
-                <TextView
+                <EditText
                     android:id="@+id/post_Tip_Category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
                     android:paddingLeft="10dp"
                     android:text="Category"
                     android:textAlignment="viewStart">
 
-                </TextView>
+                </EditText>
 
                 <Space
                     android:layout_width="150dp"
@@ -71,40 +73,42 @@
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="29dp"
-                    android:layout_height="20dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/editpen" />
 
-                <TextView
+                <EditText
                     android:id="@+id/post_Tip_User"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
                     android:paddingLeft="10dp"
                     android:text="User"
                     android:textAlignment="viewStart">
-
-                </TextView>
+                </EditText>
 
             </LinearLayout>
 
-            <TextView
+            <MultiAutoCompleteTextView
                 android:id="@+id/post_Tip_Description"
-                android:layout_width="364dp"
-                android:layout_height="114dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="#00FFFFFF"
                 android:padding="15dp"
                 android:text="Description"
                 android:textAlignment="gravity"
                 android:textStyle="italic">
 
-            </TextView>
+            </MultiAutoCompleteTextView>
 
             <Button
                 android:id="@+id/update_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#009688"
+                android:layout_marginTop="5dp"
                 android:padding="15dp"
                 android:text="Update My Tip" />
 

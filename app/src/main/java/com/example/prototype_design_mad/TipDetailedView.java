@@ -1,6 +1,7 @@
 package com.example.prototype_design_mad;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,6 +43,8 @@ public class TipDetailedView extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_detailed_view);
 
+        tip_ID = getIntent().getStringExtra("viewID");
+
         tips_DB = FirebaseDatabase.getInstance().getReference().child("Tip");
 
         mAuth = FirebaseAuth.getInstance();
@@ -56,6 +59,7 @@ public class TipDetailedView extends AppCompatActivity
         postUser = (TextView) findViewById(R.id.post_Tip_User);
 
         postRemoveBtn = (Button) findViewById(R.id.remove_btn);
+        postUpdateBtn = (Button) findViewById(R.id.update_btn);
 
         //Toast.makeText(TipDetailedView.this, tip_ID, Toast.LENGTH_LONG).show();
 
@@ -99,6 +103,24 @@ public class TipDetailedView extends AppCompatActivity
 
                 Intent mainIntent = new Intent(TipDetailedView.this, my_tips_page.class);
                 startActivity(mainIntent);
+            }
+        });
+
+        postUpdateBtn.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                tips_DB =FirebaseDatabase.getInstance().getReference();
+                tips_DB.child("Tip").child(tip_ID).child("Caption").setValue(postCaption.getText().toString());
+                tips_DB.child("Tip").child(tip_ID).child("Category").setValue(postCategory.getText().toString());
+                tips_DB.child("Tip").child(tip_ID).child("username").setValue(postUser.getText().toString());
+                tips_DB.child("Tip").child(tip_ID).child("Description").setValue(postDescription.getText().toString());
+
+                Toast.makeText(getApplicationContext(),"Successfully Updated!",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TipDetailedView.this, my_tips_page.class);
+                startActivity(intent);
             }
         });
 
