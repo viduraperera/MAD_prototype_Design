@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="34dp"
-                android:text="Review"
+                android:text="Reviews"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -47,10 +47,12 @@
                 <EditText
                     android:id="@+id/commnet_text"
                     android:layout_width="328dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/review_edit_text"
                     android:ems="10"
-                    android:hint="Write a Comment Here........."
-                    android:inputType="textMultiLine" />
+                    android:hint="Write a Review Here........."
+                    android:inputType="textMultiLine"
+                    android:textAlignment="textStart" />
 
                 <ImageButton
                     android:id="@+id/comment_btn"

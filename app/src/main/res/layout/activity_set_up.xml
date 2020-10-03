@@ -36,10 +36,10 @@
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
                 android:id="@+id/setUp_About_id"
-                android:layout_width="277dp"
-                android:layout_height="158dp"
+                android:layout_width="281dp"
+                android:layout_height="56dp"
                 android:layout_gravity="center"
 
                 android:layout_marginTop="20dp"
@@ -57,7 +57,8 @@
                 android:hint="Set"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="SetUp Submit" />
+                android:text="SetUp Submit"
+                android:background="@drawable/vup_custom_button"/>
 
         </LinearLayout>
     </ScrollView>

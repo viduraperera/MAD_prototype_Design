@@ -35,16 +35,19 @@
                 android:layout_marginTop="20dp"
                 android:inputType="textPersonName"
                 android:text="Name"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:background="@drawable/review_edit_text"/>
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
                 android:id="@+id/pro_about"
-                android:layout_width="267dp"
-                android:layout_height="146dp"
+                android:layout_width="362dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:inputType="textMultiLine" />
+                android:background="@drawable/review_edit_text"
+                android:inputType="textMultiLine"
+                android:padding="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,16 +56,19 @@
 
                 <Button
                     android:id="@+id/pro_edit"
-                    android:layout_width="191dp"
+                    android:layout_width="178dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/vup_custom_button"
                     android:text="EDIT PROFILE" />
 
                 <Button
                     android:id="@+id/pro_delete"
-                    android:layout_width="173dp"
+                    android:layout_width="183dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/vup_custom_button"
                     android:text="DELETE" />
             </LinearLayout>
 
@@ -72,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="SHOW USER RECIPES" />
+                android:text="SHOW USER RECIPES"
+                android:background="@drawable/vup_custom_button"/>
 
         </LinearLayout>
     </ScrollView>
