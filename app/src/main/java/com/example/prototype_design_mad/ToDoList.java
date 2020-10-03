@@ -125,6 +125,8 @@ package com.example.prototype_design_mad;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -226,38 +228,61 @@ public class ToDoList extends AppCompatActivity {
 
     }
 
-    public static class CreateToDoListHolder extends RecyclerView.ViewHolder{
+    public static class CreateToDoListHolder extends RecyclerView.ViewHolder {
         View mView;
+
         public CreateToDoListHolder(@NonNull View itemView) {
             super(itemView);
-            mView =itemView;
+            mView = itemView;
 
         }
-        public void setRecipe(String recipe){
+
+        public void setRecipe(String recipe) {
             TextView myTitle = (TextView) mView.findViewById(R.id.tvRecipe);
             myTitle.setText(recipe);
 
         }
-        public void setDate(String date){
+
+        public void setDate(String date) {
             TextView myDescription = (TextView) mView.findViewById(R.id.tvDate);
             myDescription.setText(date);
 
         }
-        public void setTime(String time){
+
+        public void setTime(String time) {
             TextView myIngredients = (TextView) mView.findViewById(R.id.tvTime);
             myIngredients.setText(time);
 
         }
-        public void setIngredients(String ingredients){
+
+        public void setIngredients(String ingredients) {
             TextView myProcedure = (TextView) mView.findViewById(R.id.tvIngredients);
             myProcedure.setText(ingredients);
 
         }
 
-        public void setImage(Context ctx, String image){
+        public void setImage(Context ctx, String image) {
             ImageView myImage = (ImageView) mView.findViewById(R.id.foodimage);
             Picasso.get().load(image).into(myImage);
         }
+    }
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.home_recipe, menu);
+            return super.onCreateOptionsMenu(menu);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+            if(item.getItemId() == R.id.home){
+                startActivity(new Intent(ToDoList.this, MainActivity.class));
+            }
+
+
+            return super.onOptionsItemSelected(item);
 
     }
 }
