@@ -286,6 +286,9 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(new Intent(MainActivity.this, userAccountPage.class));
         }
+        if(item.getItemId() == R.id.list){
+            startActivity(new Intent(MainActivity.this, ToDoList.class));
+        }
 
         return super.onOptionsItemSelected(item);
     }

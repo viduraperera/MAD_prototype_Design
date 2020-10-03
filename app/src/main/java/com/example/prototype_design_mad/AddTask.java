@@ -23,12 +23,17 @@ import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.prototype_design_mad.Model.Recipe_ToDoList;
+import com.example.prototype_design_mad.Model.Recipe_toDoList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,22 +43,35 @@ import java.util.Calendar;
 public class AddTask extends AppCompatActivity {
 
     EditText recipe, date, time, ingredients;
-    String rID, curDate, curTime ;
+    String curDate, curTime ;
     Button btnSave;
     DatabaseReference dbRef;
-    Recipe_ToDoList Model;
-//    FirebaseDatabase mDatabase;
+    Recipe_toDoList Model;
+    //    FirebaseDatabase mDatabase;
     FirebaseStorage mStorage;
+
     ImageButton imageButton;
     private static final int Gallery_Code = 1;
     Uri imageUrl = null;
     ProgressDialog progressDialog;
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private DatabaseReference mDatabaseUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+
+
+
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUser=mAuth.getCurrentUser();
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+
+
 
         dbRef = FirebaseDatabase.getInstance().getReference("Recipe_toDoList");
 
@@ -64,7 +82,7 @@ public class AddTask extends AppCompatActivity {
         time = findViewById(R.id.AddTime);
         ingredients = findViewById(R.id.AddIngredients);
         btnSave = findViewById(R.id.saveBtn);
-        Model = new Recipe_ToDoList();
+        Model = new Recipe_toDoList();
 
 
         mStorage = FirebaseStorage.getInstance();
@@ -113,79 +131,81 @@ public class AddTask extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String rec = recipe.getText().toString().trim();
+                final String reh = recipe.getText().toString().trim();
                 final String dt = date.getText().toString().trim();
                 final String tm = time.getText().toString().trim();
                 final String in = ingredients.getText().toString().trim();
 
 
-    if (TextUtils.isEmpty(rec)) {
-                Toast.makeText(getApplicationContext(), " Recipe", Toast.LENGTH_SHORT).show();
-            } else if (TextUtils.isEmpty(dt)) {
-                Toast.makeText(getApplicationContext(), " Date", Toast.LENGTH_SHORT).show();
-            } else if (TextUtils.isEmpty(tm)) {
-                Toast.makeText(getApplicationContext(), " Time", Toast.LENGTH_SHORT).show();
-            } else if (TextUtils.isEmpty(in)) {
-                Toast.makeText(getApplicationContext(), " Ingredients", Toast.LENGTH_SHORT).show();
-            } else {
+                if (TextUtils.isEmpty(reh)) {
+                    Toast.makeText(getApplicationContext(), " Recipe", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(dt)) {
+                    Toast.makeText(getApplicationContext(), " Date", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(tm)) {
+                    Toast.makeText(getApplicationContext(), " Time", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(in)) {
+                    Toast.makeText(getApplicationContext(), " Ingredients", Toast.LENGTH_SHORT).show();
+                } else {
 
-                progressDialog.setTitle("Uploading");
-                progressDialog.show();
+                    progressDialog.setTitle("Uploading");
+                    progressDialog.show();
 
-                StorageReference filepath = mStorage.getReference().child("imagePost").child(imageUrl.getLastPathSegment());
-                filepath.putFile(imageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    StorageReference filepath = mStorage.getReference().child("imagePost").child(imageUrl.getLastPathSegment());
+                    filepath.putFile(imageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Uri> task) {
-                                String t = task.getResult().toString();
+                            Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull final Task<Uri> task) {
+                                    final String t = task.getResult().toString();
+                                    final DatabaseReference todo = dbRef.push();
+                                    Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+                                    clearControls();
 
-                                Recipe_ToDoList todo = new Recipe_ToDoList();
-                                rID = curDate +" "+ curTime;
-                                todo.setId(rID);
-                                todo.setRecipe(rec);
-                                todo.setDate(dt);
-                                todo.setImage(task.getResult().toString());
-                                todo.setTime(tm);
-                                todo.setIngredients(in);
-
-
-                                dbRef.child(rID).setValue(todo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                        if(task.isSuccessful())
-                                        {
-                                            Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
-                                            clearControls();
+                                    mDatabaseUser.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+                                            todo.child("ingredients").setValue(in);
+//
+                                            todo.child("image").setValue(task.getResult().toString());
+                                            todo.child("time").setValue(tm);
+                                            todo.child("date").setValue(dt);
+                                            todo.child("recipe").setValue(reh);
+                                            todo.child("uid").setValue(mCurrentUser.getUid());
+                                            todo.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        startActivity(new Intent(AddTask.this,ToDoList.class));
+                                                    }
+                                                }
+                                            });
                                         }
-                                        else
-                                        {
-                                            Toast.makeText(getApplicationContext(), "Exception:"+task.getException().toString() , Toast.LENGTH_SHORT).show();
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                         }
-                                    }
-                                });
-
-                                progressDialog.dismiss();
-
-                                Intent intent = new Intent(AddTask.this, ToDoList.class);
-                                startActivity(intent);
-
-                            }
-                        });
-
-                    }
-                });
+                                    });
+                                    progressDialog.dismiss();
 
 
+
+                                }
+                            });
+
+                        }
+                    });
+
+
+                }
             }
-        }
 
 
-    });
-}
+        });
+    }
     private void clearControls () {
 
         recipe.setText("");
@@ -243,4 +263,5 @@ public class AddTask extends AppCompatActivity {
 
 
 }
+
 

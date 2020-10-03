@@ -23,10 +23,10 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/list"
         android:title="Search"
         app:showAsAction="always"
-        android:icon="@drawable/ic_action_search"/>
+        android:icon="@drawable/ic_action_name"/>
 
 
 </menu>

@@ -124,12 +124,10 @@ package com.example.prototype_design_mad;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -137,13 +135,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prototype_design_mad.Model.Recipe_ToDoList;
+import com.example.prototype_design_mad.Model.Recipe_toDoList;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.provider.FirebaseInitProvider;
 import com.squareup.picasso.Picasso;
 
 public class ToDoList extends AppCompatActivity {
@@ -157,6 +155,7 @@ public class ToDoList extends AppCompatActivity {
     private DatabaseReference mDatabaseCurrentUser;
 
     private Query mQueryCurrentUser;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,28 +165,39 @@ public class ToDoList extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Recipe_toDoList");
         mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("Recipe_toDoList");
 
-       String currentUserId = mAuth.getCurrentUser().getUid();
+        String currentUserId = mAuth.getCurrentUser().getUid();
 
-        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("Recipe_toDoList");
-        mQueryCurrentUser= mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserId);
+//        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("Recipe_toDoList");
+        mQueryCurrentUser = mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserId);
         todolist = (RecyclerView) findViewById(R.id.recview);
         todolist.setHasFixedSize(true);
         todolist.setLayoutManager(new LinearLayoutManager(this));
-    }
 
+        floatingActionButton = findViewById(R.id.fab);
+               floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+           public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AddTask.class));
+
+           }
+       });
+    }
     @Override
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Recipe_ToDoList, CreateToDoListHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Recipe_ToDoList, CreateToDoListHolder>(
-                Recipe_ToDoList.class,
+        FirebaseRecyclerAdapter<Recipe_toDoList, CreateToDoListHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Recipe_toDoList, CreateToDoListHolder>(
+                Recipe_toDoList.class,
                 R.layout.retrieved_data,
                 CreateToDoListHolder.class,
+//                mDatabase
                 mQueryCurrentUser
 
         ){
             @Override
-            protected void populateViewHolder(CreateToDoListHolder createToDoListHolder, Recipe_ToDoList Model, int i) {
+            protected void populateViewHolder(CreateToDoListHolder createToDoListHolder, Recipe_toDoList Model, int i) {
 
                 final String post_key = getRef(i).getKey();
 
