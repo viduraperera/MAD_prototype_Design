@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Home Chef</string>
+    <string name="recipe">Recipe</string>
+    <string name="date">Pick the Date</string>
+    <string name="time">Time</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="button">Button</string>
+    <string name="recipe1">Recipe</string>
+    <string name="ingredients1">Ingredients</string>
+    <string name="date1">Date</string>
+    <string name="time1">Time</string>
+    <string name="ingredients2">Ingredients</string>
 </resources>

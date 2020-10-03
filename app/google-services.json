@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "980936893073",
-    "firebase_url": "https://prototypedesignmadteamio-2ecd1.firebaseio.com",
-    "project_id": "prototypedesignmadteamio-2ecd1",
-    "storage_bucket": "prototypedesignmadteamio-2ecd1.appspot.com"
+    "project_number": "512240457975",
+    "firebase_url": "https://prototype-design-mad-d90d8.firebaseio.com",
+    "project_id": "prototype-design-mad-d90d8",
+    "storage_bucket": "prototype-design-mad-d90d8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:980936893073:android:af04a8b7184bd9c0f69530",
+        "mobilesdk_app_id": "1:512240457975:android:1f7eb2541c321c2ac61bf2",
         "android_client_info": {
           "package_name": "com.example.prototype_design_mad"
         }
       },
       "oauth_client": [
         {
-          "client_id": "980936893073-dstq10s30h6g164bll4ddt7u13jaccge.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.prototype_design_mad",
-            "certificate_hash": "d4c088437628fd9712e862a8a757d5b43a2fcbe1"
-          }
-        },
-        {
-          "client_id": "980936893073-2pkluneamac1c343ute1j96pisa8kgjd.apps.googleusercontent.com",
+          "client_id": "512240457975-h5tmo7iti8bjomq0f6felrhh7bfk0u8r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCCdPkeiQpLUPrR0uT3tNk3S3IAvJ5sy10"
+          "current_key": "AIzaSyB2cFLWoY9hmbYWcq6x3ijRCfm5FVN6CQU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "980936893073-2pkluneamac1c343ute1j96pisa8kgjd.apps.googleusercontent.com",
+              "client_id": "512240457975-h5tmo7iti8bjomq0f6felrhh7bfk0u8r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
