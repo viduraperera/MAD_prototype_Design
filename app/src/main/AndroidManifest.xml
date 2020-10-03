@@ -21,7 +21,9 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-        <activity android:name=".crearerecipesingleview"></activity>
+        <activity android:name=".crearerecipesingleview"
+            android:label="View Recipe">
+        </activity>
         <activity android:name=".mycreaterecipe">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".createrecipe1"></activity>
+        <activity android:name=".createrecipe1"
+            android:label="Create Recipe">
+
+        </activity>
         <activity android:name=".RegisterPage" />
         <activity android:name=".SingleViewActivity" />
         <activity android:name=".MainActivity">

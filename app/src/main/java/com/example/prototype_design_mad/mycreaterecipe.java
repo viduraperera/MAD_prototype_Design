@@ -3,7 +3,10 @@ package com.example.prototype_design_mad;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,7 +31,7 @@ public class mycreaterecipe extends AppCompatActivity {
     private RecyclerView mycreatelist;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
+    FloatingActionButton addRecipebtn;
     private DatabaseReference mDatabase;
 
     private DatabaseReference mDatabaseCurrentUser;
@@ -38,18 +42,31 @@ public class mycreaterecipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mycreaterecipe);
+        addRecipebtn = findViewById(R.id.addrecipebtn);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
         mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("recipe");
 
         String currentUserId = mAuth.getCurrentUser().getUid();
 
-        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("recipe");
+//        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("recipe");
         mQueryCurrentUser= mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserId);
         mycreatelist = (RecyclerView) findViewById(R.id.createlist);
         mycreatelist.setHasFixedSize(true);
         mycreatelist.setLayoutManager(new LinearLayoutManager(this));
+
+        addRecipebtn.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), createrecipe1.class));
+
+            }
+        });
     }
+
+
 
     @Override
     protected void onStart() {
@@ -124,4 +141,23 @@ public class mycreaterecipe extends AppCompatActivity {
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.onel, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        if (item.getItemId() == R.id.homebtnn) {
+            startActivity(new Intent(mycreaterecipe.this, MainActivity.class));
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

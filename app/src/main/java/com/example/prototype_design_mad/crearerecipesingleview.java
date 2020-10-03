@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +40,8 @@ public class crearerecipesingleview extends AppCompatActivity {
     private TextView msigProcedure;
     private Button msigDeleteButton;
     private Button msigUpdateButton;
-//    recipe recipe;
+    FloatingActionButton addBtnCreate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,32 +51,46 @@ public class crearerecipesingleview extends AppCompatActivity {
 
         mpost_key = getIntent().getStringExtra("viewID");
 
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipe");
 
         mAuth = FirebaseAuth.getInstance();
 
 
 
-        msigTitle = (TextView) findViewById(R.id.mcreatevtitle);
-        msigDescription = (TextView) findViewById(R.id.mcreatvdescription);
-        msigIngredents = (TextView) findViewById(R.id.mcreatvingredients);
-        msigProcedure = (TextView) findViewById(R.id.mcratevprocedure);
-        msigImage = (ImageView) findViewById(R.id.mvimage);
+        msigTitle = findViewById(R.id.mcreatevtitle);
+        msigDescription =  findViewById(R.id.mcreatvdescription);
+        msigIngredents =  findViewById(R.id.mcreatvingredients);
+        msigProcedure =  findViewById(R.id.mcratevprocedure);
+        msigImage =  findViewById(R.id.mvimage);
 
-        msigDeleteButton = (Button) findViewById(R.id.myvdeletebutton);
-        msigUpdateButton = (Button) findViewById(R.id.myeditbutton2);
+        addBtnCreate = findViewById(R.id.addbtnrecipe);
 
+
+        msigDeleteButton =  findViewById(R.id.myvdeletebutton);
+        msigUpdateButton = findViewById(R.id.myeditbutton2);
+
+        addBtnCreate = findViewById(R.id.addbtnrecipe);
+        addBtnCreate.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), createrecipe1.class));
+
+            }
+        });
 
         mDatabase.child(mpost_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                String mytitle = (String) dataSnapshot.child("Title").getValue().toString();
-                String myingredent = (String) dataSnapshot.child("Ingredients").getValue().toString();
-                String myprocedure = (String) dataSnapshot.child("Procedure").getValue().toString();
-                String myDescription = (String) dataSnapshot.child("Description").getValue().toString();
-                String myimage = (String) dataSnapshot.child("Image").getValue().toString();
+                String mytitle = (String) dataSnapshot.child("Title").getValue();
+                String myingredent = (String) dataSnapshot.child("Ingredients").getValue();
+                String myprocedure = (String) dataSnapshot.child("Procedure").getValue();
+                String myDescription = (String) dataSnapshot.child("Description").getValue();
+                String myimage = (String) dataSnapshot.child("Image").getValue();
                 String myuserid = (String) dataSnapshot.child("uid").getValue();
 
                 msigTitle.setText(mytitle);
@@ -93,11 +111,12 @@ public class crearerecipesingleview extends AppCompatActivity {
 
             }
         });
-//
+
         msigDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDatabase.child(mpost_key).removeValue();
+                mDatabase =FirebaseDatabase.getInstance().getReference().child("recipe").child(mpost_key);
+                mDatabase.removeValue();
 
                 Intent mainIntent = new Intent(crearerecipesingleview.this, mycreaterecipe.class);
                 startActivity(mainIntent);
@@ -120,6 +139,23 @@ public class crearerecipesingleview extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.onel, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        if (item.getItemId() == R.id.homebtnn) {
+            startActivity(new Intent(crearerecipesingleview.this, MainActivity.class));
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 

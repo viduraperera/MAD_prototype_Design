@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:background="@drawable/create_recipe_bgimage"
-    app:cardBackgroundColor="@color/common_google_signin_btn_text_dark_disabled">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="My Created Recipes"
-        android:textSize="24dp"></TextView>
-</LinearLayout>
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginBottom="297dp"
+    android:background="@drawable/selectioncolor"
+    app:cardBackgroundColor="@color/common_google_signin_btn_text_dark_disabled"
+    app:layout_constraintBottom_toTopOf="@+id/button2"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="286dp"
 
+        android:background="@drawable/create_recipe_box1"
+        android:backgroundTint="#FFFFFF"
         android:orientation="vertical">
 
         <ImageView
@@ -37,9 +38,12 @@
             android:id="@+id/mylisttitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/create_recipe_box1"
+            android:backgroundTint="#8FC3CA"
+            android:fontFamily="monospace"
             android:padding="10dp"
-            android:text="food"
-            android:textColor="@color/colorPrimary"
+            android:text="Title"
+            android:textColor="@color/colorAccent"
             android:textSize="16dp"
             android:textStyle="bold" />
 
@@ -47,11 +51,12 @@
             android:id="@+id/mylistdes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:paddingBottom="15dp"
-            android:text="description jhd  bsiufe"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:text="description"
+            android:textColor="#AD252222"
             android:textSize="12dp" />
 
         <TextView
@@ -80,4 +85,5 @@
 
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
