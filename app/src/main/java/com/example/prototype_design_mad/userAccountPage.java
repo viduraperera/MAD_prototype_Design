@@ -72,25 +72,31 @@ public class userAccountPage extends AppCompatActivity {
 
            }
        });
-
-       pro_edit.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               mDatabase = FirebaseDatabase.getInstance().getReference();
-               mDatabase.child("Users").child(userID).child("name").setValue(name.getText().toString());
-               mDatabase.child("Users").child(userID).child("about").setValue(about.getText().toString());
-               Toast.makeText(getApplicationContext(),"update success",Toast.LENGTH_SHORT).show();
-               Intent updateIntent = new Intent(userAccountPage.this, MainActivity.class);
-               startActivity(updateIntent);
-           }
-       });
-
+        pro_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("Users").child(userID).child("name").setValue(name.getText().toString());
+                mDatabase.child("Users").child(userID).child("about").setValue(about.getText().toString());
+                Toast.makeText(getApplicationContext(),"update success",Toast.LENGTH_SHORT).show();
+                Intent updateIntent = new Intent(userAccountPage.this, MainActivity.class);
+                startActivity(updateIntent);
+            }
+        });
         pro_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mDatabase.child(userID).removeValue();
                 Intent mainIntent = new Intent(userAccountPage.this, LoginPage.class);
                 startActivity(mainIntent);
+            }
+        });
+        see_pro_recipes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent nIntent = new Intent(userAccountPage.this, mycreaterecipe.class);
+                startActivity(nIntent);
             }
         });
     }

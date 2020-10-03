@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     DatabaseReference mDatabaseLike;
     DatabaseReference mDatabaseUsers;
+    FloatingActionButton addCreate;
 
     boolean mProcessLike = false;
 
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        addCreate = findViewById(R.id.addrecipe);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -75,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
 
         checkUserExist();
+
+        addCreate.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), createrecipe1.class));
+
+            }
+        });
 
     }
 
