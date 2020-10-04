@@ -33,13 +33,15 @@
             <EditText
                 android:id="@+id/viewRecipe"
                 android:layout_width="317dp"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/create_recipe_box1"
                 android:backgroundTint="#B9F4EFEF"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Recipe"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
 
                 android:inputType="textMultiLine"
                 android:padding="10dp"
@@ -49,7 +51,7 @@
             <EditText
                 android:id="@+id/viewDate"
                 android:layout_width="317dp"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
@@ -68,15 +70,15 @@
             <EditText
                 android:id="@+id/viewTime"
                 android:layout_width="317dp"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/create_recipe_box1"
                 android:backgroundTint="#B9F4EFEF"
                 android:ems="10"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="start|top"
                 android:hint="Time"
                 android:inputType="textMultiLine"
@@ -123,7 +125,8 @@
                     app:layout_constraintHorizontal_bias="0.263"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.916" />
+                    app:layout_constraintVertical_bias="0.916"
+                    android:textColor="#FFFFFF"/>
 
                 <Space
                     android:layout_width="145dp"
@@ -143,7 +146,8 @@
                     app:layout_constraintHorizontal_bias="0.764"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.916" />
+                    app:layout_constraintVertical_bias="0.916"
+                    android:textColor="#FFFFFF"/>
 
                 <!--                <Button-->
 <!--                    android:id="@+id/EditButton"-->
