@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/user_account"
+        android:icon="@mipmap/baseline_account_box_black_48dp"
+        android:title="account"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/my_tips"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="account"
+        app:showAsAction="always">
+
+    </item>
+
+    <item android:id="@+id/add_item"
+        android:icon="@mipmap/baseline_add_to_photos_black_36dp"
+        android:title="add post"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/add_tip"
+        android:title="Add a Tip"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/log_out"
+        android:title="Log Out"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/list"
+        android:title="Search"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_name"/>
+
+
+</menu>

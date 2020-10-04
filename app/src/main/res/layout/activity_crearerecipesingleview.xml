@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".crearerecipesingleview">
+
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/mcreatevtitle"
+                android:layout_width="242dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#79131313"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:text="TiTle"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/mvimage"
+                    android:layout_width="278dp"
+                    android:layout_height="189dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:padding="10dp"
+                    android:scaleType="fitXY"
+
+                    app:srcCompat="@drawable/create_recipe_box1" />
+
+
+
+
+            <TextView
+                android:id="@+id/mvrecipedes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#79131313"
+                android:fontFamily="monospace"
+                android:padding="10dp"
+                android:text="Description"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/mcreatvdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#E2FFFFFF"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:hint="Update Description"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="#E6604B63" />
+
+
+            <TextView
+                android:id="@+id/mcreatevnameingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#79131313"
+                android:fontFamily="monospace"
+                android:padding="10dp"
+                android:text="Ingredients"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/mcreatvingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#E2FFFFFF"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:hint="Update Ingredients"
+                android:textColorHint="#E6604B63"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                 />
+
+            <TextView
+                android:id="@+id/mcreaterecipe_procedure1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#79131313"
+                android:fontFamily="monospace"
+                android:padding="10dp"
+                android:scrollbarSize="10dp"
+                android:text="Procedure"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/mcratevprocedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#E2FFFFFF"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:hint="Update procedure"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="#E6604B63" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"></TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/myvdeletebutton"
+                        android:layout_width="103dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="90dp"
+                        android:background="@drawable/selectioncolor"
+                        android:padding="10dp"
+                        android:text="Delete"
+                        android:backgroundTint="#0C0B0B"
+                        android:textColor="#9ADF49"
+                        tools:layout_editor_absoluteX="303dp"
+                        tools:layout_editor_absoluteY="3dp" />
+
+                    <Space
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/myeditbutton2"
+                        android:layout_width="106dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="90dp"
+                        android:background="@drawable/selectioncolor"
+
+                        android:backgroundTint="#0C0B0B"
+                        android:textColor="#9ADF49"
+                        android:text="Edit"
+                        tools:layout_editor_absoluteX="354dp"
+                        tools:layout_editor_absoluteY="1dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addbtnrecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="365dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="5dp"
+        android:layout_marginEnd="70dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="#FF5722"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

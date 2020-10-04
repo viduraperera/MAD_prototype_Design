@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewTask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/newrecipe"
+    tools:context=".ViewTask">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/foodimage1"
+                android:layout_width="325dp"
+                android:layout_height="212dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:padding="40dp"
+
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/create_recipe_box1" />
+
+            <EditText
+                android:id="@+id/viewRecipe"
+                android:layout_width="317dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#B9F4EFEF"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Recipe"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="296dp" />
+
+            <EditText
+                android:id="@+id/viewDate"
+                android:layout_width="317dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#B9F4EFEF"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Date"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="296dp" />
+
+            <EditText
+                android:id="@+id/viewTime"
+                android:layout_width="317dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#B9F4EFEF"
+                android:ems="10"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="start|top"
+                android:hint="Time"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="296dp" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/viewIngredients"
+                android:layout_width="317dp"
+                android:layout_height="88dp"
+                android:layout_gravity="center"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#B9F4EFEF"
+                android:ems="10"
+                android:layout_marginStart="10dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="start|top"
+                android:hint="Ingredients"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="296dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/EditButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_round"
+                    android:text="Edit"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="60dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.263"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.916"
+                    android:textColor="#FFFFFF"/>
+
+                <Space
+                    android:layout_width="145dp"
+                    android:layout_height="14dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_round"
+                    android:text="Delete"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="60dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.764"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.916"
+                    android:textColor="#FFFFFF"/>
+
+                <!--                <Button-->
+<!--                    android:id="@+id/EditButton"-->
+<!--                    android:layout_width="61dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/ic_baseline_edit_24"-->
+<!--                    tools:layout_editor_absoluteX="303dp"-->
+<!--                    tools:layout_editor_absoluteY="3dp" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/btnDelete"-->
+<!--                    android:layout_width="56dp"-->
+<!--                    android:layout_height="58dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/ic_baseline_delete_outline_24"-->
+<!--                    android:visibility="invisible"-->
+<!--                    tools:layout_editor_absoluteX="354dp"-->
+<!--                    tools:layout_editor_absoluteY="1dp" />-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

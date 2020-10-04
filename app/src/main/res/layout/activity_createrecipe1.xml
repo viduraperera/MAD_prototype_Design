@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".createrecipe1" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/createrecipe1_ingredients2"
+                android:layout_width="272dp"
+                android:layout_height="43dp"
+              />
+
+
+            <TextView
+                android:id="@+id/createrecipe1_createrecipeuploadimage"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Upload Image"
+                android:fontFamily="monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/createvimage"
+                android:layout_width="278dp"
+                android:layout_height="227dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/add_btn" />
+
+            <TextView
+                android:id="@+id/createrecipe1_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:fontFamily="monospace"
+                android:layout_marginTop="20dp"
+                android:text="Ingredients"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/textingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#D5FFFFFF"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:hint="Ingredients"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColorHint="#E6604B63" />
+
+            <TextView
+                android:id="@+id/createrecipe1_procedure1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="monospace"
+                android:text="Procedure"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/textprocedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#D5FFFFFF"
+                android:ems="10"
+                android:hint="Procedure"
+                android:textColorHint="#E6604B63"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/createrecipe1_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="monospace"
+                android:text="Title"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/texttitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Title"
+                android:textColorHint="#E6604B63"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#D5FFFFFF"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
+
+
+            <TextView
+                android:id="@+id/createrecipe1_Description2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Description"
+                android:fontFamily="monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/textdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/selectioncolor"
+                android:backgroundTint="#D5FFFFFF"
+                android:hint="Description"
+                android:textColorHint="#E6604B63"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
+
+
+            <Button
+                android:id="@+id/btncreaterecipe"
+                android:layout_width="121dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="40dp"
+                android:background="@drawable/create_recipe_box1"
+                android:backgroundTint="#0C0B0B"
+                android:textColor="#9ADF49"
+                android:text="Create Recipe"
+                 />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

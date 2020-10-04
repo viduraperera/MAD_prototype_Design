@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prototype_design_mad">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,73 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".AddingReview"></activity>
+        <activity android:name=".userAccountPage" />
+        <activity android:name=".SetUpActivity" />
+        <activity android:name=".LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterPage" />
+        <activity android:name=".SingleViewActivity" />
+        <activity android:name=".MainActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".ToDoList"
+            android:label="To-Do List">
+
+        </activity>
+        <activity android:name=".AddTask"
+            android:label="New Task">
+
+        </activity>
+
+        <activity android:name=".ViewTask"
+            android:label="My Task">
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- onella -->
+        <!-- functions -->
+        <activity android:name=".crearerecipesingleview"
+            android:label="View Recipe"> </activity>
+        <activity android:name=".mycreaterecipe" />
+        <activity android:name=".createrecipe1"
+            android:label="Create Recipe"> </activity>
+
+        <activity
+            android:name=".TipDetailedView"
+            android:label="View my Tip"></activity>
+
+        <activity
+            android:name=".my_tips_page"
+            android:label="My Tips">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name=".add_cooking_tips"
+            android:label="Tip of the Day">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
     </application>
 
 </manifest>

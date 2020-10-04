@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userAccountPage"
+    android:layout_margin="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tipback">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/pro_pic"
+                android:layout_width="302dp"
+                android:layout_height="271dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <!--            pro_about-->
+<!--            pro_name-->
+
+            <EditText
+                android:id="@+id/pro_name"
+                android:layout_width="218dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="center"
+                android:background="@drawable/review_edit_text"/>
+
+            <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
+                android:id="@+id/pro_about"
+                android:layout_width="362dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/review_edit_text"
+                android:inputType="textMultiLine"
+                android:padding="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/pro_edit"
+                    android:layout_width="178dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/vup_custom_button"
+                    android:text="EDIT PROFILE" />
+
+                <Button
+                    android:id="@+id/pro_delete"
+                    android:layout_width="183dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/vup_custom_button"
+                    android:text="DELETE" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/pro_see_recipes"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="SHOW USER RECIPES"
+                android:background="@drawable/vup_custom_button"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>
